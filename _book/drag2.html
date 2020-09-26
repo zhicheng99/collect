@@ -1,0 +1,843 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>拖动二 · 工作中的一些收集</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="lizhicheng">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-code-editor/editor.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="selectMenu.html" />
+    
+    
+    <link rel="prev" href="drag1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    css
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="css.html">
+            
+                <a href="css.html">
+            
+                    
+                    图片倾斜效果css3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    js
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="sf.html">
+            
+                <a href="sf.html">
+            
+                    
+                    根据关系线生成布局（新）（计算行 列）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="ball.html">
+            
+                <a href="ball.html">
+            
+                    
+                    原生JS实现球面展示特效
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="drag1.html">
+            
+                <a href="drag1.html">
+            
+                    
+                    拖动一
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.4" data-path="drag2.html">
+            
+                <a href="drag2.html">
+            
+                    
+                    拖动二
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="selectMenu.html">
+            
+                <a href="selectMenu.html">
+            
+                    
+                    文本框输入@ 触发选择菜单
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="textareaSelect.html">
+            
+                <a href="textareaSelect.html">
+            
+                    
+                    textarea选中文字
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >拖动二</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>
+    <div class="zc-editor" data-id="5" data-single-tab="false">
+      <div class="zc-top blue">
+        <div class="zc-actions">
+          <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(5);">
+            <div>Export</div>
+          </div>
+        </div>
+        
+        <div class="zc-commands">
+          <div id="html-btn5" class="zc-btn" onclick="toggle(&apos;html&apos;, 5)">HTML</div>
+          <!--<div id="js-btn5" class="zc-btn" onclick="toggle('js', 5)">JavaScript</div>-->
+          <!--<div id="css-btn5" class="zc-btn" onclick="toggle('css', 5)">CSS</div>-->
+          <div id="result-btn5" class="zc-btn" onclick="toggle(&apos;result&apos;, 5)">Result</div>
+        </div>
+      </div>
+      <div class="zc-content">
+        <div id="html5" class="zc-cont" style="display:none; ">
+          <div class="editor" id="codeeditor5" data-settings="{&quot;readOnly&quot;:&quot;true&quot;,&quot;mode&quot;:&quot;html&quot;,&quot;theme&quot;:&quot;github&quot;,&quot;maxLines&quot;:&quot;500&quot;}">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;style type=&quot;text/css&quot;&gt;
+		body{
+
+  padding:0;
+  margin:0;
+    -moz-user-select:none; /*&#x706B;&#x72D0;*/
+    -webkit-user-select:none; /*webkit&#x6D4F;&#x89C8;&#x5668;*/
+    -ms-user-select:none; /*IE10*/
+    -khtml-user-select:none; /*&#x65E9;&#x671F;&#x6D4F;&#x89C8;&#x5668;*/
+    user-select:none;
+padding-left:40px;
+}
+#a{
+    height: 200px;
+}
+#area_lay{
+
+    width: 1000px;
+    height:1000px;
+    background: #ddd;
+
+}
+#area{
+  width:100px;
+  height:50px;
+  background:#fff;
+  position:relative; 
+  top:10px
+}
+#areaResize{
+  position:absolute;
+  left:100px;
+  top:100px;
+  width:20px;
+  height:20px;
+  background:red;
+} 
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;a&quot;&gt;dssf&lt;/div&gt;
+
+
+&lt;div id=&quot;pro_lay&quot;&gt;
+
+
+&lt;div id=&quot;area&quot; class=&quot;area&quot;&gt;
+  &lt;!-- &lt;div id=&quot;areaResize&quot;&gt;&lt;/div&gt; --&gt;
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	function Drag(options){
+    this.drag = null;
+    this.disX = 0;
+    this.disY = 0;
+    this.options = { 
+        dragAimClass:options.dragAimClass?options.dragAimClass:&apos;&apos;,
+        moveFun:options.moveFun?options.moveFun:function(){}
+    }
+
+    this.init();
+}
+Drag.prototype.addEvents = function(target,eventType,handle){
+    if(target.addEventListener){ 
+            target.addEventListener(eventType,handle,false);
+        
+    }else{
+            target.attachEvent(&apos;on&apos;+eventType,function(){
+                handle.call(target,arguments);
+            });
+        
+    };
+}
+
+Drag.prototype.removeEvents = function(target,eventType,handle){
+        if(target.removeEventListener){
+             target.removeEventListener(eventType, handle, false);
+         } else if(target.detachEvent){
+             target.detachEvent(&apos;on&apos; + eventType, handle);
+         } else {
+             element[&apos;on&apos; + eventType] = null;
+         }
+}
+
+Drag.prototype.init = function(){
+    this.mouseMove();
+}
+Drag.prototype.createDragDom = function(x,y,w,h){
+     console.log(x,y,w,h);
+    var d = document.createElement(&apos;div&apos;);
+    d.id=&quot;dragDom&quot;;
+    d.style.position = &apos;fixed&apos;;
+    d.style.zIndex = 1;
+    d.style.border = &apos;dashed red 1px&apos;;
+    d.style.boxSizing = &apos;border-box&apos;;
+    d.style.transform=&quot;translate3d(0,0,0)&quot;;
+    d.style.left = x+&apos;px&apos;;
+    d.style.top = y+&apos;px&apos;;
+    d.style.width = w+&apos;px&apos;;
+    d.style.height = h+&apos;px&apos;;
+
+
+    document.body.appendChild(d);
+
+    this.drag = d; 
+    _this = this;
+    this.addEvents(d,&apos;mouseup&apos;,function(){
+        _this.disX = 0;
+        _this.disY = 0;
+        _this.removeEvents(d,&apos;mouseup&apos;,null);
+        _this.drag = null; 
+        document.getElementById(&apos;dragDom&apos;) &amp;&amp; 
+        document.body.removeChild(document.getElementById(&apos;dragDom&apos;));
+
+    })
+
+}
+
+Drag.prototype.mouseMove = function(){
+    var _this = this;
+
+    this.addEvents(document,&apos;mouseleave&apos;,function(event){
+        _this.disX = 0;
+        _this.disY = 0; 
+        _this.drag = null; 
+
+         document.getElementById(&apos;dragDom&apos;) &amp;&amp; 
+        document.body.removeChild(document.getElementById(&apos;dragDom&apos;));
+    })
+
+
+    this.addEvents(document,&apos;mousedown&apos;,function(event){
+
+         var e = event || window.event; 
+        //&#x70B9;&#x4E2D;&#x4E86;&#x8981;&#x62D6;&#x52A8;&#x7684;&#x5143;&#x7D20;
+        if(e.target.className.toLowerCase().indexOf(_this.options.dragAimClass)&gt;-1){
+            _this.drag = e.target;
+            
+
+            var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+            var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+            var x = e.pageX || e.clientX + scrollX;
+            var y = e.pageY || e.clientY + scrollY; 
+
+            _this.disX = x - e.target.offsetLeft;
+            _this.disY = y - e.target.offsetTop;
+
+            _this.createDragDom(
+            e.target.offsetLeft-scrollX,
+            e.target.offsetTop-scrollY,
+            e.target.offsetWidth,
+            e.target.offsetHeight
+
+            );
+
+        }
+
+    })
+
+    this.addEvents(document,&apos;mousemove&apos;,function(event){ 
+                if(_this.drag !== null){
+                var e = event || window.event;
+            var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+            var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+            var x = e.pageX || e.clientX + scrollX;
+            var y = e.pageY || e.clientY + scrollY;  
+
+                _this.drag.style.left = (x - _this.disX-scrollX)+&apos;px&apos;;
+                _this.drag.style.top = (y - _this.disY-scrollY)+&apos;px&apos;;
+
+                _this.options.moveFun(x,y);
+            
+            }
+                
+        
+        })
+}
+
+
+window.onload = function(){
+    var x = null;
+    var y = null;
+    new Drag({ 
+        dragAimClass:&quot;area&quot;,
+        moveFun:function(x,y){
+            console.log(x,y);
+        }
+    })
+
+    
+
+
+}
+
+
+&lt;/script&gt;</div>
+        </div><div id="result5" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
+        <div id="js5" class="zc-cont" style="display:none">
+          <pre id="js-code5" class="prettyprint linenums"></pre>
+        </div>
+  
+        <div id="css5" class="zc-cont" style="display:none">
+          <pre id="css-code5" class="prettyprint linenums"></pre>
+        </div>
+  
+      </div>
+  
+      <input type="hidden" id="init-html5" value="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;style type=&quot;text/css&quot;&gt;
+		body{
+
+  padding:0;
+  margin:0;
+    -moz-user-select:none; /*&#x706B;&#x72D0;*/
+    -webkit-user-select:none; /*webkit&#x6D4F;&#x89C8;&#x5668;*/
+    -ms-user-select:none; /*IE10*/
+    -khtml-user-select:none; /*&#x65E9;&#x671F;&#x6D4F;&#x89C8;&#x5668;*/
+    user-select:none;
+padding-left:40px;
+}
+#a{
+    height: 200px;
+}
+#area_lay{
+
+    width: 1000px;
+    height:1000px;
+    background: #ddd;
+
+}
+#area{
+  width:100px;
+  height:50px;
+  background:#fff;
+  position:relative; 
+  top:10px
+}
+#areaResize{
+  position:absolute;
+  left:100px;
+  top:100px;
+  width:20px;
+  height:20px;
+  background:red;
+} 
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;a&quot;&gt;dssf&lt;/div&gt;
+
+
+&lt;div id=&quot;pro_lay&quot;&gt;
+
+
+&lt;div id=&quot;area&quot; class=&quot;area&quot;&gt;
+  &lt;!-- &lt;div id=&quot;areaResize&quot;&gt;&lt;/div&gt; --&gt;
+&lt;/div&gt;
+
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	function Drag(options){
+    this.drag = null;
+    this.disX = 0;
+    this.disY = 0;
+    this.options = { 
+        dragAimClass:options.dragAimClass?options.dragAimClass:&apos;&apos;,
+        moveFun:options.moveFun?options.moveFun:function(){}
+    }
+
+    this.init();
+}
+Drag.prototype.addEvents = function(target,eventType,handle){
+    if(target.addEventListener){ 
+            target.addEventListener(eventType,handle,false);
+        
+    }else{
+            target.attachEvent(&apos;on&apos;+eventType,function(){
+                handle.call(target,arguments);
+            });
+        
+    };
+}
+
+Drag.prototype.removeEvents = function(target,eventType,handle){
+        if(target.removeEventListener){
+             target.removeEventListener(eventType, handle, false);
+         } else if(target.detachEvent){
+             target.detachEvent(&apos;on&apos; + eventType, handle);
+         } else {
+             element[&apos;on&apos; + eventType] = null;
+         }
+}
+
+Drag.prototype.init = function(){
+    this.mouseMove();
+}
+Drag.prototype.createDragDom = function(x,y,w,h){
+     console.log(x,y,w,h);
+    var d = document.createElement(&apos;div&apos;);
+    d.id=&quot;dragDom&quot;;
+    d.style.position = &apos;fixed&apos;;
+    d.style.zIndex = 1;
+    d.style.border = &apos;dashed red 1px&apos;;
+    d.style.boxSizing = &apos;border-box&apos;;
+    d.style.transform=&quot;translate3d(0,0,0)&quot;;
+    d.style.left = x+&apos;px&apos;;
+    d.style.top = y+&apos;px&apos;;
+    d.style.width = w+&apos;px&apos;;
+    d.style.height = h+&apos;px&apos;;
+
+
+    document.body.appendChild(d);
+
+    this.drag = d; 
+    _this = this;
+    this.addEvents(d,&apos;mouseup&apos;,function(){
+        _this.disX = 0;
+        _this.disY = 0;
+        _this.removeEvents(d,&apos;mouseup&apos;,null);
+        _this.drag = null; 
+        document.getElementById(&apos;dragDom&apos;) &amp;&amp; 
+        document.body.removeChild(document.getElementById(&apos;dragDom&apos;));
+
+    })
+
+}
+
+Drag.prototype.mouseMove = function(){
+    var _this = this;
+
+    this.addEvents(document,&apos;mouseleave&apos;,function(event){
+        _this.disX = 0;
+        _this.disY = 0; 
+        _this.drag = null; 
+
+         document.getElementById(&apos;dragDom&apos;) &amp;&amp; 
+        document.body.removeChild(document.getElementById(&apos;dragDom&apos;));
+    })
+
+
+    this.addEvents(document,&apos;mousedown&apos;,function(event){
+
+         var e = event || window.event; 
+        //&#x70B9;&#x4E2D;&#x4E86;&#x8981;&#x62D6;&#x52A8;&#x7684;&#x5143;&#x7D20;
+        if(e.target.className.toLowerCase().indexOf(_this.options.dragAimClass)&gt;-1){
+            _this.drag = e.target;
+            
+
+            var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+            var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+            var x = e.pageX || e.clientX + scrollX;
+            var y = e.pageY || e.clientY + scrollY; 
+
+            _this.disX = x - e.target.offsetLeft;
+            _this.disY = y - e.target.offsetTop;
+
+            _this.createDragDom(
+            e.target.offsetLeft-scrollX,
+            e.target.offsetTop-scrollY,
+            e.target.offsetWidth,
+            e.target.offsetHeight
+
+            );
+
+        }
+
+    })
+
+    this.addEvents(document,&apos;mousemove&apos;,function(event){ 
+                if(_this.drag !== null){
+                var e = event || window.event;
+            var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+            var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+            var x = e.pageX || e.clientX + scrollX;
+            var y = e.pageY || e.clientY + scrollY;  
+
+                _this.drag.style.left = (x - _this.disX-scrollX)+&apos;px&apos;;
+                _this.drag.style.top = (y - _this.disY-scrollY)+&apos;px&apos;;
+
+                _this.options.moveFun(x,y);
+            
+            }
+                
+        
+        })
+}
+
+
+window.onload = function(){
+    var x = null;
+    var y = null;
+    new Drag({ 
+        dragAimClass:&quot;area&quot;,
+        moveFun:function(x,y){
+            console.log(x,y);
+        }
+    })
+
+    
+
+
+}
+
+
+&lt;/script&gt;">
+      <input type="hidden" id="init-css5" value="">
+      <input type="hidden" id="init-js5" value="">
+      <input type="hidden" id="init-active5" value="html">
+  
+      <div style="display:none;">
+        <form method="post" id="codepen-form5" action="//codepen.io/pen/define" target="check">
+          <input id="codepen-data5" type="hidden" name="data">
+          <input type="hidden" name="wrap" value="l">
+        </form>
+      </div>
+    </div>
+  </p>
+<footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2020-09-26 10:13:54
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="drag1.html" class="navigation navigation-prev " aria-label="Previous page: 拖动一">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="selectMenu.html" class="navigation navigation-next " aria-label="Next page: 文本框输入@ 触发选择菜单">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"拖动二","level":"1.3.4","depth":2,"next":{"title":"文本框输入@ 触发选择菜单","level":"1.3.5","depth":2,"path":"selectMenu.md","ref":"selectMenu.md","articles":[]},"previous":{"title":"拖动一","level":"1.3.3","depth":2,"path":"drag1.md","ref":"drag1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"drag2.md","mtime":"2020-09-26T02:13:54.347Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-26T02:29:24.856Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="http://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-code-editor/editor.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,27 @@
+{
+    "title": "工作中的一些收集",
+    "description": "工作中的一些收集",
+    "author": "lizhicheng",
+    "output.name": "工作中的一些收集",
+    "styles": {
+        "website": "example/style/website.css"
+    },
+    "plugins": [
+         "expandable-chapters-small",
+         "tbfed-pagefooter", 
+         "sidebar-style",
+         "auto-scroll-table",
+         "code-editor"
+    ],
+    "pluginsConfig": {
+        "tbfed-pagefooter": {
+          "copyright":"&copy Collect",
+          "modify_label": "文件修订时间：",
+          "modify_format": "YYYY-MM-DD HH:mm:ss"
+        },
+        "sidebar-style": {
+            "title": "工作中的一些收集",
+            "author": "志成"
+        }
+    }
+}
