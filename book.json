@@ -6,15 +6,15 @@
     "styles": {
         "website": "example/style/website.css"
     },
-    "plugins": [
+    "plugins": [ 
          "expandable-chapters-small",
          "tbfed-pagefooter", 
          "sidebar-style",
          "auto-scroll-table",
          "code-editor"
     ],
-    "pluginsConfig": {
-        "tbfed-pagefooter": {
+    "pluginsConfig": { 
+      "tbfed-pagefooter": {
           "copyright":"&copy Collect",
           "modify_label": "文件修订时间：",
           "modify_format": "YYYY-MM-DD HH:mm:ss"
