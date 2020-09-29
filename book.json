@@ -11,7 +11,8 @@
          "tbfed-pagefooter", 
          "sidebar-style",
          "auto-scroll-table",
-         "code-editor"
+         "code-editor",
+         "code"
     ],
     "pluginsConfig": { 
       "tbfed-pagefooter": {
