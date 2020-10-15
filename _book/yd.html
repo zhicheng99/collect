@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · 工作中的一些收集</title>
+        <title>仿有道云笔记网页剪报算法 · 工作中的一些收集</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,8 +73,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="css.html" />
     
+    <link rel="prev" href="nodelink.html" />
     
 
     </head>
@@ -103,7 +103,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -253,7 +253,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.8" data-path="yd.html">
+        <li class="chapter active" data-level="1.3.8" data-path="yd.html">
             
                 <a href="yd.html">
             
@@ -301,7 +301,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >仿有道云笔记网页剪报算法</a>
     </h1>
 </div>
 
@@ -316,10 +316,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="collect">collect</h1>
-<p>&#x5DE5;&#x4F5C;&#x4E2D;&#x6536;&#x96C6;&#x7684;&#x4E00;&#x4E9B;&#x4E1C;&#x897F; </p>
+                                <h1 id="&#x4EFF;&#x6709;&#x9053;&#x4E91;&#x7B14;&#x8BB0;&#x7F51;&#x9875;&#x526A;&#x62A5;&#x6548;&#x679C;-&#x62BD;&#x53D6;&#x7F51;&#x9875;&#x4E3B;&#x5185;&#x5BB9;&#x533A;&#x7684;&#x7B97;&#x6CD5;&#x539F;&#x7406;">&#x4EFF;&#x6709;&#x9053;&#x4E91;&#x7B14;&#x8BB0;&#x7F51;&#x9875;&#x526A;&#x62A5;&#x6548;&#x679C; &#x62BD;&#x53D6;&#x7F51;&#x9875;&#x4E3B;&#x5185;&#x5BB9;&#x533A;&#x7684;&#x7B97;&#x6CD5;&#x539F;&#x7406;</h1>
+<h2 id="&#x539F;&#x7406;">&#x539F;&#x7406;</h2>
+<p>&#x4E3A;&#x6240;&#x6709; dom &#xFF08;body.childNodes&#xFF09;&#x8282;&#x70B9;&#x8BC4;&#x5206;&#xFF0C;&#x5206;&#x6570;&#x6700;&#x9AD8;&#x7684;&#x5373;&#x4E3A;&#x4E3B;&#x5185;&#x5BB9;&#x8282;&#x70B9;
+&#x5F71;&#x54CD;&#x67D0;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x8BC4;&#x5206;&#x7684;&#x56E0;&#x7D20;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x9879;</p>
+<ol>
+<li>&#x6587;&#x672C;&#x8282;&#x70B9;<code>&#x5185;&#x5BB9;&#x4E0D;&#x4E3A;&#x7A7A;</code> &#x7684;&#x6570;&#x91CF;&#x53CA;&#x5185;&#x5BB9;&#x91CC;&#x7684;&#x6807;&#x70B9;&#x7B26;&#x53F7;&#x7684;&#x6570;&#x91CF;</li>
+<li>&#x6587;&#x672C;&#x8282;&#x70B9;&#x5185;&#x5BB9;&#x7684;&#x957F;&#x5EA6;</li>
+<li>&#x56FE;&#x7247;&#x6216; svg &#x7684;&#x6570;&#x91CF;</li>
+<li>&#x56FE;&#x7247;&#x6216; svg &#x7684;&#x5927;&#x5C0F;</li>
+<li>&#x6807;&#x7B7E;&#x7684; class &#x6216; id &#x4F7F;&#x7528;&#x4E86;&#x5185;&#x5BB9;&#x533A;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x4E9B;&#x5B57;&#x7B26;&#x4E32;&#xFF08;&#x5982; content article &#x7B49;&#xFF09; &#x8FD9;&#x4E9B;&#x662F;&#x9700;&#x8981;&#x52A0;&#x5206;&#x7684;</li>
+<li>&#x6807;&#x7B7E;&#x7684; class &#x6216; id &#x4F7F;&#x7528;&#x4E86;&#x975E;&#x5185;&#x5BB9;&#x533A;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x4E9B;&#x5B57;&#x7B26;&#x4E32; &#xFF08;&#x5982; head foot &#x7B49;&#xFF09;&#x8FD9;&#x4E9B;&#x662F;&#x9700;&#x8981;&#x51CF;&#x5206;&#x7684;</li>
+<li>&#x6807;&#x7B7E;&#x7684;&#x4F4D;&#x7F6E; &#xFF08;&#x6BD4;&#x5982;&#x8DDD;&#x9875;&#x9762;&#x9876;&#x90E8;&#x90FD;&#x8D85;&#x8FC7;&#x4E00;&#x5C4F;&#x4E86;&#xFF09;&#x8FD9;&#x6837;&#x57FA;&#x672C;&#x5C31;&#x53EF;&#x80FD;&#x6392;&#x9664;&#x8FD9;&#x6837;&#x7684;&#x8282;&#x70B9;&#x4E86;</li>
+</ol>
+<h3 id="&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;">&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;</h3>
+<h4 id="&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x53D6;&#x5F97;&#x6240;&#x6709;&#x8282;&#x70B9;">&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x53D6;&#x5F97;&#x6240;&#x6709;&#x8282;&#x70B9;</h4>
+<p>&#x53D6;&#x5F97;&#x9875;&#x9762;&#x7684;&#x6240;&#x6709; dom &#x8282;&#x70B9;&#xFF08;&#x7528;&#x9012;&#x5F52;&#x628A;&#x6240;&#x6709;&#x7684;&#x5B50;&#x8282;&#x70B9; <code>childNodes</code> &#x90FD;&#x5217;&#x51FA;&#x6765;&#xFF09;&#xFF0C;&#x8FC7;&#x6EE4;&#x6389;&#x4E0D;&#x9700;&#x8981;&#x53C2;&#x4E0E;&#x8BC4;&#x5206;&#x7684;&#x8282;&#x70B9;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x8FD9;&#x4E9B;&#x8282;&#x70B9;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x505A;&#x4E3A;&#x4E3B;&#x5185;&#x5BB9;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x4E0D;&#x6392;&#x9664;&#x6781;&#x7AEF;&#x60C5;&#x51B5;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x53EA;&#x5904;&#x7406;&#x7EDD;&#x5927;&#x591A;&#x6570;&#xFF09;
+&#x9700;&#x8981;&#x8FC7;&#x6EE4;&#x6389;&#x7684;&#x8282;&#x70B9;&#x6709; link img i a svg style script select input textarea
+&#x8FD8;&#x6709; nodeType = 3 &#x7684;&#x5185;&#x5BB9;&#x4E3A;&#x7A7A;&#x7684;&#x6587;&#x672C;&#x8282;&#x70B9;&#xFF0C;nodeType==8 &#x7684;&#x6CE8;&#x91CA;&#x8282;&#x70B9;</p>
+<blockquote>
+<p>&#x5FAA;&#x73AF;&#x53D6;&#x5F97;&#x8282;&#x70B9;&#x7684;&#x540C;&#x65F6; &#x8981;&#x7EDF;&#x8BA1;&#x5404;&#x4E2A;&#x8BC4;&#x5206;&#x56E0;&#x7D20;&#x7684;&#x6570;&#x91CF;</p>
+</blockquote>
+<h4 id="&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x8F6C;&#x5316;&#x4E3A;&#x8BC4;&#x5206;">&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x8F6C;&#x5316;&#x4E3A;&#x8BC4;&#x5206;</h4>
+<p>&#x5BF9;&#x7B2C;&#x4E00;&#x6B65;&#x7EDF;&#x8BA1;&#x51FA;&#x6765;&#x7684;&#x8BC4;&#x5206;&#x56E0;&#x7D20;&#x7684;&#x91CF;&#x8F6C;&#x5316;&#x4E3A;&#x5177;&#x4F53;&#x5206;&#x6570;</p>
+<h4 id="&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x6392;&#x5E8F;">&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x6392;&#x5E8F;</h4>
+<p>&#x6839;&#x636E;&#x8BC4;&#x5206;&#x5BF9;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x964D;&#x5E8F;&#x6392;&#x5E8F;&#xFF0C;&#x90A3;&#x4E48;&#x53D6;&#x51FA;&#x6765;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5C31;&#x662F;&#x6240;&#x8981;&#x627E;&#x7684;&#x4E3B;&#x5185;&#x5BB9;&#x8282;&#x70B9;</p>
+<h4 id="&#x6CE8;&#x610F;&#xFF1A;">&#x6CE8;&#x610F;&#xFF1A;</h4>
+<p>&#x5982;&#x679C;&#x8981;&#x6DB5;&#x76D6;&#x6240;&#x6709;&#x7684;&#x7F51;&#x9875;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x7684;&#xFF0C;&#x5BF9;&#x4E00;&#x4E9B;&#x5199;&#x5F97;&#x6BD4;&#x8F83;&#x89C4;&#x8303;&#xFF08;&#x9875;&#x9762;&#x7ED3;&#x6784;&#x6E05;&#x6670;&#xFF0C;class &#x548C; id &#x540D;&#x79F0;&#x8FD0;&#x7528;&#x4E5F;&#x6BD4;&#x8F83;&#x51C6;&#x786E;&#xFF09;&#xFF0C;&#x5185;&#x5BB9;&#x6240;&#x5360;&#x7684;&#x7BC7;&#x5E45;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x7F51;&#x9875;&#xFF0C;&#x90A3;&#x4E48;&#x9009;&#x4E2D;&#x4E3B;&#x5185;&#x5BB9;&#x533A;&#x7684;&#x6210;&#x529F;&#x7387;&#x662F;&#x6BD4;&#x8F83;&#x9AD8;&#x7684;&#xFF1B;&#x53CD;&#x4E4B;&#xFF0C;&#x6210;&#x529F;&#x7387;&#x5C31;&#x6CA1;&#x90A3;&#x4E48;&#x9AD8;&#x4E86;&#xFF1B;&#x5C24;&#x5176;&#x662F;&#x4E00;&#x4E9B;&#x7F51;&#x9875;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#xFF0C;class &#x6216; id &#x90FD;&#x662F;&#x4E00;&#x4E9B;&#x968F;&#x673A;&#x6570;&#xFF0C;&#x53EF;&#x80FD;&#x8FD8;&#x5B58;&#x5728;&#x5927;&#x7BC7;&#x5E45;&#x7684;&#x5E7F;&#x544A;&#x533A;&#xFF0C;&#x6210;&#x529F;&#x7387;&#x4F1A;&#x66F4;&#x4F4E;&#x3002;</p>
+<p>&#x603B;&#x4E4B;&#xFF0C;&#x8FD9;&#x79CD;&#x7B97;&#x6CD5;&#x662F;&#x4E2A;&#x4E0D;&#x65AD;&#x4F18;&#x5316;&#x7684;&#x8FC7;&#x7A0B;&#x3002; </p>
 <footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-09-29 14:54:07
+2020-10-15 11:33:32
 </span></footer>
                                 
                                 </section>
@@ -347,10 +373,10 @@
 
             
                 
-                
-                <a href="css.html" class="navigation navigation-next navigation-unique" aria-label="Next page: css">
-                    <i class="fa fa-angle-right"></i>
+                <a href="nodelink.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: node连线算法">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -359,7 +385,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"css","level":"1.2","depth":1,"path":"css.md","ref":"css.md","articles":[{"title":"图片倾斜效果css3","level":"1.2.1","depth":2,"path":"css3.md","ref":"css3.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"README.md","mtime":"2020-09-29T06:54:07.935Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-15T03:34:09.321Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"仿有道云笔记网页剪报算法","level":"1.3.8","depth":2,"previous":{"title":"node连线算法","level":"1.3.7","depth":2,"path":"nodelink.md","ref":"nodelink.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"yd.md","mtime":"2020-10-15T03:33:32.972Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-15T03:34:09.321Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

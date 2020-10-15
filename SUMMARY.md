@@ -11,3 +11,4 @@
   * [文本框输入@触发选择菜单](selectMenu.md)
   * [textarea选中文字](textareaSelect.md)
   * [node连线算法](nodelink.md)
+  * [仿有道云笔记网页剪报算法](yd.md)
