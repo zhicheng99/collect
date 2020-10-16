@@ -1,0 +1,763 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>基于Qcanvas实现画布即时渲染textarea输入的文本 · 工作中的一些收集</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="lizhicheng">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-code-editor/editor.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="example/style/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="yd.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="css.html">
+            
+                <a href="css.html">
+            
+                    
+                    css
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="css3.html">
+            
+                <a href="css3.html">
+            
+                    
+                    图片倾斜效果css3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="js.html">
+            
+                <a href="js.html">
+            
+                    
+                    js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="sf.html">
+            
+                <a href="sf.html">
+            
+                    
+                    根据关系线生成布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="ball.html">
+            
+                <a href="ball.html">
+            
+                    
+                    原生JS实现球面展示特效
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="drag1.html">
+            
+                <a href="drag1.html">
+            
+                    
+                    拖动一
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="drag2.html">
+            
+                <a href="drag2.html">
+            
+                    
+                    拖动二
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="selectMenu.html">
+            
+                <a href="selectMenu.html">
+            
+                    
+                    文本框输入@触发选择菜单
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="textareaSelect.html">
+            
+                <a href="textareaSelect.html">
+            
+                    
+                    textarea选中文字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="nodelink.html">
+            
+                <a href="nodelink.html">
+            
+                    
+                    node连线算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="yd.html">
+            
+                <a href="yd.html">
+            
+                    
+                    仿有道云笔记网页剪报算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.9" data-path="textarea.html">
+            
+                <a href="textarea.html">
+            
+                    
+                    基于Qcanvas实现画布即时渲染textarea输入的文本
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >基于Qcanvas实现画布即时渲染textarea输入的文本</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x57FA;&#x4E8E;Qcanvas&#x5B9E;&#x73B0; &#x76F4;&#x63A5;&#x5728;canvas&#x4E0A;&#x8F93;&#x5165;&#x6587;&#x672C;&#xFF08;&#x5229;&#x7528;textarea&#x6A21;&#x62DF;&#xFF09;</p>
+<p>
+    <div class="zc-editor" data-id="9" data-single-tab="false">
+      <div class="zc-top blue">
+        <div class="zc-actions">
+          <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(9);">
+            <div>Export</div>
+          </div>
+        </div>
+        
+        <div class="zc-commands">
+          <div id="html-btn9" class="zc-btn" onclick="toggle(&apos;html&apos;, 9)">HTML</div>
+          <!--<div id="js-btn9" class="zc-btn" onclick="toggle('js', 9)">JavaScript</div>-->
+          <!--<div id="css-btn9" class="zc-btn" onclick="toggle('css', 9)">CSS</div>-->
+          <div id="result-btn9" class="zc-btn" onclick="toggle(&apos;result&apos;, 9)">Result</div>
+        </div>
+      </div>
+      <div class="zc-content">
+        <div id="html9" class="zc-cont" style="display:none; ">
+          <div class="editor" id="codeeditor9" data-settings="{&quot;readOnly&quot;:&quot;true&quot;,&quot;mode&quot;:&quot;html&quot;,&quot;theme&quot;:&quot;github&quot;,&quot;maxLines&quot;:&quot;500&quot;}">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;script src=&quot;https://zhicheng99.github.io/qcanvas/Qcanvas.js&quot;&gt;&lt;/script&gt;
+	&lt;style&gt;
+		html,body{
+    padding:0;
+    margin: 0;
+}
+canvas{
+  background:#eee; 
+
+}
+
+#textarea{
+    position: absolute;
+    z-index: 1;
+    padding:0;
+    margin:0;
+    outline: none;
+    display: none;
+    font-family:&apos;Microsoft YaHei&apos;;
+    /* font-family: &apos;Arial&apos;; */
+	word-break: break-all;
+    border:none;
+    overflow: hidden;
+    background: rgba(0,0,0,0);
+}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+	&lt;canvas id=&quot;qcanvas&quot;&gt;&lt;/canvas&gt;
+
+&lt;textarea name=&quot;&quot; id=&quot;textarea&quot; cols=&quot;10&quot; rows=&quot;&quot; warp=&quot;hard&quot; onkeyup=&quot;change(this)&quot;&gt;&lt;/textarea&gt;
+&lt;script&gt;
+	var qcanvas;
+var text1;
+var rect;
+window.onload = function(){
+    qcanvas = new Qcanvas({
+      id:&apos;qcanvas&apos;,
+      width:500,
+      height:500,
+      mousedown:function(v,pos){
+        document.getElementById(&apos;textarea&apos;).style.display = &apos;none&apos;;
+      }
+  });
+ 
+rect = qcanvas.qrect.rect({
+    start:[100,20],
+    width:100,
+    height:20,
+    borderColor:&apos;orange&apos;,
+    dblclick:function(e,pos){
+        var x = this.start[0];
+        var y = this.start[1];
+        var doc = document.getElementById(&apos;textarea&apos;);
+        doc.style.top = y+&apos;px&apos;;
+        doc.style.left = x +&apos;px&apos;;
+        doc.style.width = this.width +&apos;px&apos;;
+        doc.style.height = this.height+&apos;px&apos;;
+        doc.style.fontSize=&quot;12px&quot;;
+        doc.style.lineHeight=&quot;14px&quot;;
+        doc.style.display = &apos;block&apos;
+        doc.value = text1.text;
+
+        doc.focus(); 
+    },
+    mousemove:function(){
+        if(qcanvas.dragAim === null){
+            return false;
+        }
+        text1.setStart(this.start);
+
+    }
+})
+text1 = qcanvas.qtext.text({
+    text:&apos;123456&apos;,
+    start:[100,23],
+    fontSize:&apos;12px&apos;, 
+    lineHeight:&apos;14px&apos;,
+    color:&apos;blue&apos;,
+    textAlign:&apos;left&apos;,
+    textBaseline:&apos;top&apos;,
+    pointerEvent:&apos;none&apos;,
+    // fontFamily:&apos;Arial&apos;
+})
+
+
+
+
+}
+
+function getWidth(v){
+    return qcanvas.context.measureText(v).width;
+} 
+function drawText( str) {
+    var lineWidth = 0;
+    var lastSubStrIndex = 0; //&#x6BCF;&#x6B21;&#x5F00;&#x59CB;&#x622A;&#x53D6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x7D22;&#x5F15;
+    var c = [];
+    for (let i = 0; i &lt; str.length; i++) {
+      lineWidth += getWidth(str[i]); 
+      
+      //&#x6709;&#x6362;&#x884C; &#x91CD;&#x65B0;&#x8BA1;&#x7B97;
+      if(str[i] == &apos;\n&apos;){
+          lineWidth = 0;
+      }
+
+      if (lineWidth &gt; 100) {
+        c.push(str.substring(lastSubStrIndex, i));//&#x7ED8;&#x5236;&#x622A;&#x53D6;&#x90E8;&#x5206;
+        // initHeight += 70;//60&#x4E3A;&#x5B57;&#x4F53;&#x7684;&#x9AD8;&#x5EA6;
+        lineWidth = getWidth(str[i]);
+        lastSubStrIndex = i;
+      }
+      if (i == str.length - 1) {//&#x7ED8;&#x5236;&#x5269;&#x4F59;&#x90E8;&#x5206;
+        c.push(str.substring(lastSubStrIndex, i + 1))
+       }
+    }
+
+    text1.setText(c.join(&apos;\n&apos;)); 
+    // console.log(text1.polyPoints());
+    var point = text1.polyPoints();
+    var height = point[3].y - point[0].y; 
+}
+function autoHeight(elem){
+            elem.style.height = &apos;auto&apos;;
+            elem.scrollTop = 0; //&#x9632;&#x6296;&#x52A8;
+            elem.style.height = elem.scrollHeight + &apos;px&apos;;
+        }
+function change(e){  
+    autoHeight(e);
+    rect.setHeight(parseInt(e.style.height));
+    drawText(e.value);
+}
+
+	
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</div>
+        </div><div id="result9" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
+        <div id="js9" class="zc-cont" style="display:none">
+          <pre id="js-code9" class="prettyprint linenums"></pre>
+        </div>
+  
+        <div id="css9" class="zc-cont" style="display:none">
+          <pre id="css-code9" class="prettyprint linenums"></pre>
+        </div>
+  
+      </div>
+  
+      <input type="hidden" id="init-html9" value="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;script src=&quot;https://zhicheng99.github.io/qcanvas/Qcanvas.js&quot;&gt;&lt;/script&gt;
+	&lt;style&gt;
+		html,body{
+    padding:0;
+    margin: 0;
+}
+canvas{
+  background:#eee; 
+
+}
+
+#textarea{
+    position: absolute;
+    z-index: 1;
+    padding:0;
+    margin:0;
+    outline: none;
+    display: none;
+    font-family:&apos;Microsoft YaHei&apos;;
+    /* font-family: &apos;Arial&apos;; */
+	word-break: break-all;
+    border:none;
+    overflow: hidden;
+    background: rgba(0,0,0,0);
+}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+	&lt;canvas id=&quot;qcanvas&quot;&gt;&lt;/canvas&gt;
+
+&lt;textarea name=&quot;&quot; id=&quot;textarea&quot; cols=&quot;10&quot; rows=&quot;&quot; warp=&quot;hard&quot; onkeyup=&quot;change(this)&quot;&gt;&lt;/textarea&gt;
+&lt;script&gt;
+	var qcanvas;
+var text1;
+var rect;
+window.onload = function(){
+    qcanvas = new Qcanvas({
+      id:&apos;qcanvas&apos;,
+      width:500,
+      height:500,
+      mousedown:function(v,pos){
+        document.getElementById(&apos;textarea&apos;).style.display = &apos;none&apos;;
+      }
+  });
+ 
+rect = qcanvas.qrect.rect({
+    start:[100,20],
+    width:100,
+    height:20,
+    borderColor:&apos;orange&apos;,
+    dblclick:function(e,pos){
+        var x = this.start[0];
+        var y = this.start[1];
+        var doc = document.getElementById(&apos;textarea&apos;);
+        doc.style.top = y+&apos;px&apos;;
+        doc.style.left = x +&apos;px&apos;;
+        doc.style.width = this.width +&apos;px&apos;;
+        doc.style.height = this.height+&apos;px&apos;;
+        doc.style.fontSize=&quot;12px&quot;;
+        doc.style.lineHeight=&quot;14px&quot;;
+        doc.style.display = &apos;block&apos;
+        doc.value = text1.text;
+
+        doc.focus(); 
+    },
+    mousemove:function(){
+        if(qcanvas.dragAim === null){
+            return false;
+        }
+        text1.setStart(this.start);
+
+    }
+})
+text1 = qcanvas.qtext.text({
+    text:&apos;123456&apos;,
+    start:[100,23],
+    fontSize:&apos;12px&apos;, 
+    lineHeight:&apos;14px&apos;,
+    color:&apos;blue&apos;,
+    textAlign:&apos;left&apos;,
+    textBaseline:&apos;top&apos;,
+    pointerEvent:&apos;none&apos;,
+    // fontFamily:&apos;Arial&apos;
+})
+
+
+
+
+}
+
+function getWidth(v){
+    return qcanvas.context.measureText(v).width;
+} 
+function drawText( str) {
+    var lineWidth = 0;
+    var lastSubStrIndex = 0; //&#x6BCF;&#x6B21;&#x5F00;&#x59CB;&#x622A;&#x53D6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x7D22;&#x5F15;
+    var c = [];
+    for (let i = 0; i &lt; str.length; i++) {
+      lineWidth += getWidth(str[i]); 
+      
+      //&#x6709;&#x6362;&#x884C; &#x91CD;&#x65B0;&#x8BA1;&#x7B97;
+      if(str[i] == &apos;\n&apos;){
+          lineWidth = 0;
+      }
+
+      if (lineWidth &gt; 100) {
+        c.push(str.substring(lastSubStrIndex, i));//&#x7ED8;&#x5236;&#x622A;&#x53D6;&#x90E8;&#x5206;
+        // initHeight += 70;//60&#x4E3A;&#x5B57;&#x4F53;&#x7684;&#x9AD8;&#x5EA6;
+        lineWidth = getWidth(str[i]);
+        lastSubStrIndex = i;
+      }
+      if (i == str.length - 1) {//&#x7ED8;&#x5236;&#x5269;&#x4F59;&#x90E8;&#x5206;
+        c.push(str.substring(lastSubStrIndex, i + 1))
+       }
+    }
+
+    text1.setText(c.join(&apos;\n&apos;)); 
+    // console.log(text1.polyPoints());
+    var point = text1.polyPoints();
+    var height = point[3].y - point[0].y; 
+}
+function autoHeight(elem){
+            elem.style.height = &apos;auto&apos;;
+            elem.scrollTop = 0; //&#x9632;&#x6296;&#x52A8;
+            elem.style.height = elem.scrollHeight + &apos;px&apos;;
+        }
+function change(e){  
+    autoHeight(e);
+    rect.setHeight(parseInt(e.style.height));
+    drawText(e.value);
+}
+
+	
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+">
+      <input type="hidden" id="init-css9" value="">
+      <input type="hidden" id="init-js9" value="">
+      <input type="hidden" id="init-active9" value="html">
+  
+      <div style="display:none;">
+        <form method="post" id="codepen-form9" action="//codepen.io/pen/define" target="check">
+          <input id="codepen-data9" type="hidden" name="data">
+          <input type="hidden" name="wrap" value="l">
+        </form>
+      </div>
+    </div>
+  </p>
+<footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2020-10-16 18:16:12
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="yd.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 仿有道云笔记网页剪报算法">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"基于Qcanvas实现画布即时渲染textarea输入的文本","level":"1.3.9","depth":2,"previous":{"title":"仿有道云笔记网页剪报算法","level":"1.3.8","depth":2,"path":"yd.md","ref":"yd.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"textarea.md","mtime":"2020-10-16T10:16:12.786Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-16T10:17:19.564Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="http://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-code-editor/editor.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

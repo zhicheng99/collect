@@ -12,3 +12,5 @@
   * [textarea选中文字](textareaSelect.md)
   * [node连线算法](nodelink.md)
   * [仿有道云笔记网页剪报算法](yd.md)
+  * [基于Qcanvas实现画布即时渲染textarea输入的文本](textarea.md)
+
