@@ -1,42 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<script src="https://zhicheng99.github.io/qcanvas/Qcanvas.js"></script>
-	
-	<style>
-		html,body{
-    padding:0;
-    margin: 0;
-}
-canvas{
-  background:#eee; 
-
-}
-
-#textarea{
-    position: absolute;
-    z-index: 1;
-    padding:0;
-    margin:0;
-    outline: none;
-    display: none;
-    font-family:'Microsoft YaHei';
-    /* font-family: 'Arial'; */
-	word-break: break-all;
-    border:none;
-    overflow: hidden;
-    background: rgba(0,0,0,0);
-}
-	</style>
-</head>
-<body>
-
-	<canvas id="qcanvas"></canvas>
-
-<textarea name="" id="textarea" cols="10" rows="" warp="hard" onkeyup="change(this)"></textarea>
-<script>
-	var qcanvas;
+var qcanvas;
 var text1;
 var rect;
 window.onload = function(){
@@ -139,6 +101,3 @@ function change(e){
     rect.setHeight(parseInt(e.style.height));
     drawText(e.value);
 }
-</script>
-</body>
-</html>
