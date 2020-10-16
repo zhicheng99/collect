@@ -353,44 +353,11 @@
 &lt;head&gt;
 	&lt;title&gt;&lt;/title&gt;
 	&lt;script src=&quot;https://zhicheng99.github.io/qcanvas/Qcanvas.js&quot;&gt;&lt;/script&gt;
-	&lt;style&gt;
-		html,body{
-    padding:0;
-    margin: 0;
-}
-canvas{
-  background:#eee; 
-
-}
-
-#textarea{
-    position: absolute;
-    z-index: 1;
-    padding:0;
-    margin:0;
-    outline: none;
-    display: none;
-    font-family:&apos;Microsoft YaHei&apos;;
-    /* font-family: &apos;Arial&apos;; */
-	word-break: break-all;
-    border:none;
-    overflow: hidden;
-    background: rgba(0,0,0,0);
-}
-	&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-	&lt;canvas id=&quot;qcanvas&quot;&gt;&lt;/canvas&gt;
-
-&lt;textarea name=&quot;&quot; id=&quot;textarea&quot; cols=&quot;10&quot; rows=&quot;&quot; warp=&quot;hard&quot; onkeyup=&quot;change(this)&quot;&gt;&lt;/textarea&gt;
-&lt;script&gt;
+	&lt;script&gt;
 	var qcanvas;
 var text1;
 var rect;
-// window.onload = function(){
-
-	console.log(&apos;fdds&apos;);
+var init = function(){ 
 
     qcanvas = new Qcanvas({
       id:&apos;qcanvas&apos;,
@@ -444,7 +411,7 @@ text1 = qcanvas.qtext.text({
 
 
 
-// }
+}
 
 function getWidth(v){
     return qcanvas.context.measureText(v).width;
@@ -490,25 +457,6 @@ function change(e){
 
 
 &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</div>
-        </div><div id="result9" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
-        <div id="js9" class="zc-cont" style="display:none">
-          <pre id="js-code9" class="prettyprint linenums"></pre>
-        </div>
-  
-        <div id="css9" class="zc-cont" style="display:none">
-          <pre id="css-code9" class="prettyprint linenums"></pre>
-        </div>
-  
-      </div>
-  
-      <input type="hidden" id="init-html9" value="&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;title&gt;&lt;/title&gt;
-	&lt;script src=&quot;https://zhicheng99.github.io/qcanvas/Qcanvas.js&quot;&gt;&lt;/script&gt;
 	&lt;style&gt;
 		html,body{
     padding:0;
@@ -541,12 +489,32 @@ canvas{
 
 &lt;textarea name=&quot;&quot; id=&quot;textarea&quot; cols=&quot;10&quot; rows=&quot;&quot; warp=&quot;hard&quot; onkeyup=&quot;change(this)&quot;&gt;&lt;/textarea&gt;
 &lt;script&gt;
+	init();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</div>
+        </div><div id="result9" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
+        <div id="js9" class="zc-cont" style="display:none">
+          <pre id="js-code9" class="prettyprint linenums"></pre>
+        </div>
+  
+        <div id="css9" class="zc-cont" style="display:none">
+          <pre id="css-code9" class="prettyprint linenums"></pre>
+        </div>
+  
+      </div>
+  
+      <input type="hidden" id="init-html9" value="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;script src=&quot;https://zhicheng99.github.io/qcanvas/Qcanvas.js&quot;&gt;&lt;/script&gt;
+	&lt;script&gt;
 	var qcanvas;
 var text1;
 var rect;
-// window.onload = function(){
-
-	console.log(&apos;fdds&apos;);
+var init = function(){ 
 
     qcanvas = new Qcanvas({
       id:&apos;qcanvas&apos;,
@@ -600,7 +568,7 @@ text1 = qcanvas.qtext.text({
 
 
 
-// }
+}
 
 function getWidth(v){
     return qcanvas.context.measureText(v).width;
@@ -645,6 +613,40 @@ function change(e){
 }
 
 
+&lt;/script&gt;
+	&lt;style&gt;
+		html,body{
+    padding:0;
+    margin: 0;
+}
+canvas{
+  background:#eee; 
+
+}
+
+#textarea{
+    position: absolute;
+    z-index: 1;
+    padding:0;
+    margin:0;
+    outline: none;
+    display: none;
+    font-family:&apos;Microsoft YaHei&apos;;
+    /* font-family: &apos;Arial&apos;; */
+	word-break: break-all;
+    border:none;
+    overflow: hidden;
+    background: rgba(0,0,0,0);
+}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+	&lt;canvas id=&quot;qcanvas&quot;&gt;&lt;/canvas&gt;
+
+&lt;textarea name=&quot;&quot; id=&quot;textarea&quot; cols=&quot;10&quot; rows=&quot;&quot; warp=&quot;hard&quot; onkeyup=&quot;change(this)&quot;&gt;&lt;/textarea&gt;
+&lt;script&gt;
+	init();
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
@@ -702,7 +704,7 @@ function change(e){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"基于Qcanvas实现画布即时渲染textarea输入的文本","level":"1.3.9","depth":2,"previous":{"title":"仿有道云笔记网页剪报算法","level":"1.3.8","depth":2,"path":"yd.md","ref":"yd.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"textarea.md","mtime":"2020-10-16T10:16:12.786Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-16T10:32:19.856Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"基于Qcanvas实现画布即时渲染textarea输入的文本","level":"1.3.9","depth":2,"previous":{"title":"仿有道云笔记网页剪报算法","level":"1.3.8","depth":2,"path":"yd.md","ref":"yd.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"textarea.md","mtime":"2020-10-16T10:16:12.786Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-16T10:37:56.156Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
