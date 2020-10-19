@@ -17,13 +17,14 @@ rect = qcanvas.qrect.rect({
     width:100,
     height:20,
     borderColor:'orange',
+    fillColor:'#FEF8DE',
     dblclick:function(e,pos){
         var x = this.start[0];
         var y = this.start[1];
         var doc = document.getElementById('textarea');
         doc.style.top = y+'px';
         doc.style.left = x +'px';
-        doc.style.width = this.width +'px';
+        doc.style.width = this.width+'px';
         doc.style.height = this.height+'px';
         doc.style.fontSize="12px";
         doc.style.lineHeight="14px";
@@ -31,14 +32,14 @@ rect = qcanvas.qrect.rect({
         doc.value = text1.text;
 
         doc.focus(); 
-        text1.setColor('#eee');
+        text1.setColor('#FEF8DE');
 
     },
     mousemove:function(){
         if(qcanvas.dragAim === null){
             return false;
         }
-        text1.setStart(this.start);
+        text1.setStart([this.start[0],this.start[1]+3]);
 
     }
 })
@@ -88,8 +89,8 @@ function drawText( str) {
 
     text1.setText(c.join('\n')); 
     // console.log(text1.polyPoints());
-    var point = text1.polyPoints();
-    var height = point[3].y - point[0].y; 
+    // var point = text1.polyPoints();
+    // var height = point[3].y - point[0].y; 
 }
 function autoHeight(elem){
             elem.style.height = 'auto';
