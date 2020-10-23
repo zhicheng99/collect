@@ -1,8 +1,11 @@
 # Summary
 
 * [Introduction](README.md)
+
 * [css](css.md)
+  
   * [图片倾斜效果css3](css3.md)
+  
 * [js](js.md)
   * [根据关系线生成布局](sf.md)
   * [原生JS实现球面展示特效](ball.md)
@@ -13,4 +16,5 @@
   * [node连线算法](nodelink.md)
   * [仿有道云笔记网页剪报算法](yd.md)
   * [基于Qcanvas实现画布即时渲染textarea输入的文本](textarea.md)
-
+* 疑难问题
+  * [video标签不能自动播放问题](video.md)
