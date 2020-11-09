@@ -17,6 +17,7 @@
   * [node连线算法](nodelink.md)
   * [仿有道云笔记网页剪报算法](yd.md)
   * [基于Qcanvas实现画布即时渲染textarea输入的文本](textarea.md)
+  * [多个Promise实现](promise.md)
 * [疑难问题](problem.md)
   * [video标签不能自动播放问题](video.md)
 
