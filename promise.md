@@ -21,7 +21,7 @@ var f2 =  new Promise((resolve,reject)=>{
     })
 
 
-Promise.all([f1]).then(()=>{ 
+Promise.all([f1,f2]).then(()=>{ 
     console.log('callback')
 })
 ```
