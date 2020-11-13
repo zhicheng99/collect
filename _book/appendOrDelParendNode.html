@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>正反面翻转 · 工作中的一些收集</title>
+        <title>js 给元素添加、删除父标签 · 工作中的一些收集</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="js.html" />
+    <link rel="next" href="problem.html" />
     
     
-    <link rel="prev" href="css3.html" />
+    <link rel="prev" href="promise.html" />
     
 
     </head>
@@ -145,7 +145,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="perspective.html">
+        <li class="chapter " data-level="1.2.2" data-path="perspective.html">
             
                 <a href="perspective.html">
             
@@ -307,7 +307,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.11" data-path="appendOrDelParendNode.html">
+        <li class="chapter active" data-level="1.3.11" data-path="appendOrDelParendNode.html">
             
                 <a href="appendOrDelParendNode.html">
             
@@ -387,7 +387,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >正反面翻转</a>
+        <a href="." >js 给元素添加、删除父标签</a>
     </h1>
 </div>
 
@@ -402,239 +402,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>
-    <div class="zc-editor" data-id="2" data-single-tab="false">
-      <div class="zc-top blue">
-        <div class="zc-actions">
-          <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(2);">
-            <div>Export</div>
-          </div>
-        </div>
-        
-        <div class="zc-commands">
-          <div id="html-btn2" class="zc-btn" onclick="toggle(&apos;html&apos;, 2)">HTML</div>
-          <!--<div id="js-btn2" class="zc-btn" onclick="toggle('js', 2)">JavaScript</div>-->
-          <!--<div id="css-btn2" class="zc-btn" onclick="toggle('css', 2)">CSS</div>-->
-          <div id="result-btn2" class="zc-btn" onclick="toggle(&apos;result&apos;, 2)">Result</div>
-        </div>
-      </div>
-      <div class="zc-content">
-        <div id="html2" class="zc-cont" style="display:none; ">
-          <div class="editor" id="codeeditor2" data-settings="{&quot;readOnly&quot;:&quot;true&quot;,&quot;mode&quot;:&quot;html&quot;,&quot;theme&quot;:&quot;github&quot;,&quot;maxLines&quot;:&quot;500&quot;}">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+                                <pre><code>&lt;img id=&quot;img&quot; src=&quot;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&quot; &gt;
 
-&lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-    .caseitem_hover {
-        width: 278px;
-        height: 398px;
-        position: relative;
-        margin: 0 auto;
-        -webkit-transition: transform 0.2s;
-        -moz-transition: transform 0.2s;
-        -ms-transition: transform 0.2s;
-        -o-transition: transform 0.2s;
-        /* cursor: pointer; */
+&lt;a href=&quot;&quot;&gt;
+    &lt;img id=&quot;img1&quot; src=&quot;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&quot; &gt;
+&lt;/a&gt;
+</code></pre><pre><code>
+window.onload = function(){
+
+
+    //&#x589E;&#x52A0;&#x7236;&#x6807;&#x7B7E;
+    var img = document.getElementById(&apos;img&apos;);
+
+    var parent = img.parentNode; 
+    if(parent.tagName.toLowerCase() != &apos;a&apos;){
+        //&#x589E;&#x52A0;&#x94FE;&#x63A5; 
+        var a = document.createElement(&apos;a&apos;);
+        a.href=&quot;http://www.baidu.com&quot;;
+        a.target = &apos;_blank&apos;;
+        img.parentNode.replaceChild(a,img);
+        a.appendChild(img);
     }
 
-    .caseItem_back {
-        background-color: #f5f5f5;
-        width: 276px;
-        height: 396px;
-        border: solid #E6E6E6 1px;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        margin-left: -139px;
-        perspective: 1500;
-        -webkit-perspective: 1500;
-        transform: rotateY(-180deg);
-        -webkit-transform: rotateY(-180deg);
-        -webkit-transition: transform 1s, box-shadow 0.8s;
-        -moz-transition: transform 1s, box-shadow 0.8s;
-        -ms-transition: transform 1s, box-shadow 0.8s;
-        -o-transition: transform 1s, box-shadow 0.8s;
-    }
+    //&#x5220;&#x9664;&#x7236;&#x6807;&#x7B7E;
+    var img1 = document.getElementById(&apos;img1&apos;);
+    img1.parentNode.parentNode.insertBefore(img1.cloneNode(true),img1.parentNode);
+    img1.parentNode.parentNode.removeChild(img1.parentNode);
 
-    .caseItem_front {
-        background-color: #cccccc;
-        width: 276px;
-        height: 396px;
-        border: solid #E6E6E6 1px;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        margin-left: -139px;
-        perspective: 1500;
-        /* pointer-events: none; */
-        cursor: pointer;
-        -webkit-perspective: 1500;
-        -webkit-transition: transform 1s, box-shadow 0.8s, opacity 1s;
-        -moz-transition: transform 1s, box-shadow 0.8s, opacity 1s;
-        -ms-transition: transform 1s, box-shadow 0.8s, opacity 1s;
-        -o-transition: transform 1s, box-shadow 0.8s, opacity 1s;
-    }
-
-    .caseitem_hover:hover .caseItem_front {
-        pointer-events: none;
-        box-shadow: #e6e6e6 2px 2px 10px;
-
-
-
-        transform: rotateY(-180deg);
-        -webkit-transform: rotateY(-180deg);
-        opacity: 0;
-
-    }
-
-    .caseitem_hover:hover .caseItem_back {
-
-        box-shadow: #e6e6e6 2px 2px 10px;
-
-
-
-        transform: rotateY(-360deg);
-        -webkit-transform: rotateY(-360deg);
-
-
-    }
-    &lt;/style&gt;
-
-&lt;body&gt;
-    &lt;div class=&quot;caseitem_hover&quot;&gt;
-        &lt;div class=&quot;caseItem_back&quot;&gt;
-            &#x53CD;&#x9762;
-        &lt;/div&gt;
-        &lt;div class=&quot;caseItem_front&quot;&gt;
-            &#x6B63;&#x9762;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/head&gt;
-
-&lt;/html&gt;</div>
-        </div><div id="result2" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
-        <div id="js2" class="zc-cont" style="display:none">
-          <pre id="js-code2" class="prettyprint linenums"></pre>
-        </div>
-  
-        <div id="css2" class="zc-cont" style="display:none">
-          <pre id="css-code2" class="prettyprint linenums"></pre>
-        </div>
-  
-      </div>
-  
-      <input type="hidden" id="init-html2" value="&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-
-&lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;title&gt;&lt;/title&gt;
-    &lt;style&gt;
-    .caseitem_hover {
-        width: 278px;
-        height: 398px;
-        position: relative;
-        margin: 0 auto;
-        -webkit-transition: transform 0.2s;
-        -moz-transition: transform 0.2s;
-        -ms-transition: transform 0.2s;
-        -o-transition: transform 0.2s;
-        /* cursor: pointer; */
-    }
-
-    .caseItem_back {
-        background-color: #f5f5f5;
-        width: 276px;
-        height: 396px;
-        border: solid #E6E6E6 1px;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        margin-left: -139px;
-        perspective: 1500;
-        -webkit-perspective: 1500;
-        transform: rotateY(-180deg);
-        -webkit-transform: rotateY(-180deg);
-        -webkit-transition: transform 1s, box-shadow 0.8s;
-        -moz-transition: transform 1s, box-shadow 0.8s;
-        -ms-transition: transform 1s, box-shadow 0.8s;
-        -o-transition: transform 1s, box-shadow 0.8s;
-    }
-
-    .caseItem_front {
-        background-color: #cccccc;
-        width: 276px;
-        height: 396px;
-        border: solid #E6E6E6 1px;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        margin-left: -139px;
-        perspective: 1500;
-        /* pointer-events: none; */
-        cursor: pointer;
-        -webkit-perspective: 1500;
-        -webkit-transition: transform 1s, box-shadow 0.8s, opacity 1s;
-        -moz-transition: transform 1s, box-shadow 0.8s, opacity 1s;
-        -ms-transition: transform 1s, box-shadow 0.8s, opacity 1s;
-        -o-transition: transform 1s, box-shadow 0.8s, opacity 1s;
-    }
-
-    .caseitem_hover:hover .caseItem_front {
-        pointer-events: none;
-        box-shadow: #e6e6e6 2px 2px 10px;
-
-
-
-        transform: rotateY(-180deg);
-        -webkit-transform: rotateY(-180deg);
-        opacity: 0;
-
-    }
-
-    .caseitem_hover:hover .caseItem_back {
-
-        box-shadow: #e6e6e6 2px 2px 10px;
-
-
-
-        transform: rotateY(-360deg);
-        -webkit-transform: rotateY(-360deg);
-
-
-    }
-    &lt;/style&gt;
-
-&lt;body&gt;
-    &lt;div class=&quot;caseitem_hover&quot;&gt;
-        &lt;div class=&quot;caseItem_back&quot;&gt;
-            &#x53CD;&#x9762;
-        &lt;/div&gt;
-        &lt;div class=&quot;caseItem_front&quot;&gt;
-            &#x6B63;&#x9762;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/head&gt;
-
-&lt;/html&gt;">
-      <input type="hidden" id="init-css2" value="">
-      <input type="hidden" id="init-js2" value="">
-      <input type="hidden" id="init-active2" value="html">
-  
-      <div style="display:none;">
-        <form method="post" id="codepen-form2" action="//codepen.io/pen/define" target="check">
-          <input id="codepen-data2" type="hidden" name="data">
-          <input type="hidden" name="wrap" value="l">
-        </form>
-      </div>
-    </div>
-  </p>
-<footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-10-26 10:30:27
+}
+</code></pre><footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2020-11-13 12:16:44
 </span></footer>
                                 
                                 </section>
@@ -662,12 +459,12 @@
 
             
                 
-                <a href="css3.html" class="navigation navigation-prev " aria-label="Previous page: 图片倾斜效果css3">
+                <a href="promise.html" class="navigation navigation-prev " aria-label="Previous page: 多个Promise实现">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="js.html" class="navigation navigation-next " aria-label="Next page: js">
+                <a href="problem.html" class="navigation navigation-next " aria-label="Next page: 疑难问题">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -678,7 +475,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"正反面翻转","level":"1.2.2","depth":2,"next":{"title":"js","level":"1.3","depth":1,"path":"js.md","ref":"js.md","articles":[{"title":"根据关系线生成布局","level":"1.3.1","depth":2,"path":"sf.md","ref":"sf.md","articles":[]},{"title":"原生JS实现球面展示特效","level":"1.3.2","depth":2,"path":"ball.md","ref":"ball.md","articles":[]},{"title":"拖动一","level":"1.3.3","depth":2,"path":"drag1.md","ref":"drag1.md","articles":[]},{"title":"拖动二","level":"1.3.4","depth":2,"path":"drag2.md","ref":"drag2.md","articles":[]},{"title":"文本框输入@触发选择菜单","level":"1.3.5","depth":2,"path":"selectMenu.md","ref":"selectMenu.md","articles":[]},{"title":"textarea选中文字","level":"1.3.6","depth":2,"path":"textareaSelect.md","ref":"textareaSelect.md","articles":[]},{"title":"node连线算法","level":"1.3.7","depth":2,"path":"nodelink.md","ref":"nodelink.md","articles":[]},{"title":"仿有道云笔记网页剪报算法","level":"1.3.8","depth":2,"path":"yd.md","ref":"yd.md","articles":[]},{"title":"基于Qcanvas实现画布即时渲染textarea输入的文本","level":"1.3.9","depth":2,"path":"textarea.md","ref":"textarea.md","articles":[]},{"title":"多个Promise实现","level":"1.3.10","depth":2,"path":"promise.md","ref":"promise.md","articles":[]},{"title":"js 给元素添加、删除父标签","level":"1.3.11","depth":2,"path":"appendOrDelParendNode.md","ref":"appendOrDelParendNode.md","articles":[]}]},"previous":{"title":"图片倾斜效果css3","level":"1.2.1","depth":2,"path":"css3.md","ref":"css3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"perspective.md","mtime":"2020-10-26T02:30:27.681Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-13T04:17:43.243Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"js 给元素添加、删除父标签","level":"1.3.11","depth":2,"next":{"title":"疑难问题","level":"1.4","depth":1,"path":"problem.md","ref":"problem.md","articles":[{"title":"video标签不能自动播放问题","level":"1.4.1","depth":2,"path":"video.md","ref":"video.md","articles":[]}]},"previous":{"title":"多个Promise实现","level":"1.3.10","depth":2,"path":"promise.md","ref":"promise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"appendOrDelParendNode.md","mtime":"2020-11-13T04:16:44.124Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-13T04:17:43.243Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
