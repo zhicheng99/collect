@@ -19,6 +19,7 @@
   * [基于Qcanvas实现画布即时渲染textarea输入的文本](textarea.md)
   * [多个Promise实现](promise.md)
   * [js 给元素添加、删除父标签](appendOrDelParendNode.md)
+  * [多行溢出省略号显示（ccs/js）实现！](overflow.md)
 * [疑难问题](problem.md)
   * [video标签不能自动播放问题](video.md)
 

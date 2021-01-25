@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#a{
+    width: 200px;
+    background: #ccc;
+    line-height: 20px; 
+}
+.p{
+  width:1rem;
+  height:0.4rem; 
+  /*//需要设置高度*/
+  /*//必须结合的属性，将对象作为弹性伸缩盒对象的子元素的排列仿古式*/
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  text-overflow:ellipsis;
+  -webkit-line-clamp:2;
+  /*//例如超过2行显示省略号*/
+  overflow:hidden;
+}
+	</style>
+</head>
+<body>
+	<div id="a"></div>
+	<div  class="p">小绵羊小绵羊小绵羊小绵羊小绵羊小绵羊</div>
+<script>
+	function moreline(id,rows,str){
+      var boxid = document.getElementById(id);
+      var computedStyle = document.defaultView.getComputedStyle(boxid,null);
+      var lineHeight = computedStyle.lineHeight;
+      var top = rows*parseInt(lineHeight);
+      var tempstr = str;
+      boxid.innerHTML = tempstr;
+      var len = tempstr.length;
+      var i = 0;
+      console.log(boxid.offsetHeight,top)
+      if(boxid.offsetHeight<=top){
+      }else{
+        var temp = "";
+        boxid.innerHTML = temp;
+        while(boxid.offsetHeight<=top){
+          temp = tempstr.substring(0,i+1);
+          i++;
+          boxid.innerHTML = temp;
+        }
+
+        console.log(temp)
+
+        var slen = temp.length;
+        tempstr = temp.substring(0,slen-1);
+        len = tempstr.length;
+        boxid.innerHTML = tempstr.substring(0,len-1)+"...";
+        boxid.height = top+"rem";
+      }
+     }
+    var str = '中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国中国';
+    moreline('a',5,str)
+
+</script>
+	
+</body>
+</html>
