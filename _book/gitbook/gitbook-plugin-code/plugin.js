@@ -41,7 +41,7 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
      */
     code = block.children('code');
     console.log(code);
-    lines = code.html().split('\n');
+    lines = typeof code.html() != 'undefined' ? code.html().split('\n'):[];
 
     if (lines[lines.length - 1] == '') {
       lines.splice(-1, 1);
