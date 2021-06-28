@@ -1,41 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="robots" content="noindex, nofollow"/>
-    <meta name="googlebot" content="noindex, nofollow"/>
-    <title>在线裁图示例 - JSRUN 驱动</title>
- 
-        <script type="text/javascript" src="http://cdn.bootcss.com/vue/2.2.1/vue.js"></script>
-    <link rel="stylesheet" type="text/css" href="example/cut/main.css"/>
-
+    <title></title>
 </head>
 <body>
 
-<div id="app">
- {{cut_width}}
-</div>
-
-<script> 
-window.onload = function(){
-    new Vue({
-        el: '#app',
-        data: {
-            cut_width:100
-        },
-        filters:{
-            format:function(v){
-                return parseInt(v);
-            }
-        },
-        methods:{
-        },
-        
-    })
-}
-
-</script>
+    <iframe src="https://codesandbox.io/s/qcut-4w36q?file=/package.json" width="500" height="500" frameborder="0"></iframe>
 
 </body>
 </html>
-
