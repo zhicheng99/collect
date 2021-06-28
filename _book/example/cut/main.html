@@ -13,127 +13,15 @@
 <body>
 
 <div id="app">
-
-<div class="cropper" ref="cropper">
-
-    <div class="bg" v-if="base64!=''"  :style="{
-        width:bg_width+'px',
-        height:bg_height+'px',
-        transform:'scale('+scaleX+','+scaleY+') translate3d('+(translateX/scaleBase)+'px,'+(translateY/scaleBase)+'px,0px)',
-    }">
-        <img  :src="base64" ref="cut_img" />
-    </div>
-
-    <div class="cropper-drag cropper-move" id="cropper-drag">
-
-    </div>
-
-    <div class="cut_cover" id="cut_cover" ref="cut_cover"
-    v-bind:style="{
-        width:cut_width+'px',
-        height:cut_height+'px',
-        left:cut_translateX+'px',
-        top:cut_translateY+'px'
-
-    }">
-    <div class="img_cover">
-        <div class="front" v-if="base64!=''" ref="front"  :style="{
-            width:bg_width+'px',
-            height:bg_height+'px',
-            transform:'scale('+scaleX+','+scaleY+') translate3d('+(frontX/scaleBase)+'px,'+(frontY/scaleBase)+'px,0px)'
-        }">
-            <img  :src="base64" ref="front_img"/>
-        </div>
-    </div>
-    <div id="tip">{{cut_width | format}}x{{cut_height | format}}</div>
-
-    <template v-if="!cut_moving">
-    <span id= "point1" class="point"></span>
-    <span id= "point2" class="point"></span>
-    <span id= "point3" class="point"></span>
-    <span id= "point4" class="point"></span>
-    <span id= "point5" class="point"></span>
-    <span id= "point6" class="point"></span>
-    <span id= "point7" class="point"></span>
-    <span id= "point8" class="point"></span>
-        
-    </template>
-
-  
-    </div>
+ {{cut_width | format}}
 </div>
 
-
-<input id="file" type="file" @change="addImg" accept="image/png,image/jpeg,image/gif,image/jpg">
-
-
-<button @click="cut4">截图</button>
-</div>
-
-<script>
-    var Event = {};
-Event.addEvents = function(target,eventType,handle){
-    if(target.addEventListener){
-        Event.addEvents = function(target,eventType,handle){
-            target.addEventListener(eventType,handle,false);
-        };
-    }else{
-        Event.addEvents = function(target,eventType,handle){
-            target.attachEvent('on'+eventType,function(){
-                handle.call(target,arguments);
-            });
-        };
-    };
-    Event.addEvents(target,eventType,handle);
-};
+<script> 
 window.onload = function(){
     new Vue({
         el: '#app',
         data: {
-            base64:'',
-            cropper_width:0,
-            cropper_height:0,
-            img_width:0,
-            img_height:0,
-
-            bg_width:0,
-            bg_height:0,
-            old_bg_width:0,
-            old_bg_height:0,
-
-            disX:0,
-            disY:0,
-
-            translateX:0,
-            translateY:0,
-            init_translateX:-1,
-            init_translateY:-1,
-            init_centerX:-1,
-            init_centerY:-1,
-            scaleBase:1,
-            scaleX:1,
-            scaleY:1,
-
-            drag:null,
-
-            cut_width:100,
-            cut_height:100,
-            fixed: false, // 是否开启截图框宽高固定比例
-            fixedNumber: [3, 4], // 截图框的宽高比例
-            fixedRate:0,
-            old_cut_width:100,
-            old_cut_height:100,
-            cut_translateX:0,
-            cut_translateY:0,
-
-            cut_maxLeft:0,
-            cut_maxTop:0,
-
-            cut_moving:false,   //裁剪框是否正在移动
-
-           
-
-
+            cut_width:100
         },
         filters:{
             format:function(v){
