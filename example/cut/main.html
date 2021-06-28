@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="googlebot" content="noindex, nofollow"/>
+    <title>在线裁图示例 - JSRUN 驱动</title>
+
+    <script type="text/javascript" src="" ></script>
+        <script type="text/javascript" src="http://cdn.bootcss.com/vue/2.2.1/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+<script type="application/javascript" src="main.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+
+<div class="cropper" ref="cropper">
+
+    <div class="bg" v-if="base64!=''"  :style="{
+        width:bg_width+'px',
+        height:bg_height+'px',
+        transform:'scale('+scaleX+','+scaleY+') translate3d('+(translateX/scaleBase)+'px,'+(translateY/scaleBase)+'px,0px)',
+    }">
+        <img  :src="base64" ref="cut_img" />
+    </div>
+
+    <div class="cropper-drag cropper-move" id="cropper-drag">
+
+    </div>
+
+    <div class="cut_cover" id="cut_cover" ref="cut_cover"
+    v-bind:style="{
+        width:cut_width+'px',
+        height:cut_height+'px',
+        left:cut_translateX+'px',
+        top:cut_translateY+'px'
+
+    }">
+    <div class="img_cover">
+        <div class="front" v-if="base64!=''" ref="front"  :style="{
+            width:bg_width+'px',
+            height:bg_height+'px',
+            transform:'scale('+scaleX+','+scaleY+') translate3d('+(frontX/scaleBase)+'px,'+(frontY/scaleBase)+'px,0px)'
+        }">
+            <img  :src="base64" ref="front_img"/>
+        </div>
+    </div>
+    <div id="tip">{{cut_width | format}}x{{cut_height | format}}</div>
+
+    <template v-if="!cut_moving">
+    <span id= "point1" class="point"></span>
+    <span id= "point2" class="point"></span>
+    <span id= "point3" class="point"></span>
+    <span id= "point4" class="point"></span>
+    <span id= "point5" class="point"></span>
+    <span id= "point6" class="point"></span>
+    <span id= "point7" class="point"></span>
+    <span id= "point8" class="point"></span>
+        
+    </template>
+
+  
+    </div>
+</div>
+
+
+<input id="file" type="file" @change="addImg" accept="image/png,image/jpeg,image/gif,image/jpg">
+
+
+<button @click="cut4">截图</button>
+</div>
+
+</body>
+</html>
+
