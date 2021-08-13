@@ -23,6 +23,7 @@
   * [多行溢出省略号显示（ccs/js）实现！](overflow.md)
   * [实现类Promise](diyPromise.md)
   * [在线裁图](cutImg.md)
+  * [文件分块](fileChunk.md)
   
 * [疑难问题](problem.md)
   * [video标签不能自动播放问题](video.md)

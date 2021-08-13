@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>实现类Promise · 工作中的一些收集</title>
+        <title>文件分块 · 工作中的一些收集</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="cutImg.html" />
+    <link rel="next" href="problem.html" />
     
     
-    <link rel="prev" href="overflow.html" />
+    <link rel="prev" href="cutImg.html" />
     
 
     </head>
@@ -346,7 +346,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.13" data-path="diyPromise.html">
+        <li class="chapter " data-level="1.3.13" data-path="diyPromise.html">
             
                 <a href="diyPromise.html">
             
@@ -372,7 +372,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.15" data-path="fileChunk.html">
+        <li class="chapter active" data-level="1.3.15" data-path="fileChunk.html">
             
                 <a href="fileChunk.html">
             
@@ -452,7 +452,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >实现类Promise</a>
+        <a href="." >文件分块</a>
     </h1>
 </div>
 
@@ -467,50 +467,223 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code>function Promise(fn) {
-    var value = null, succallbacks = [], failcallbacks = [];
-    this.then = function (fulfilled, rejected) {
-        succallbacks.push(fulfilled);
-        failcallbacks.push(rejected);
-    }
+                                <p>
+    <div class="zc-editor" data-id="15" data-single-tab="false">
+      <div class="zc-top blue">
+        <div class="zc-actions">
+          <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(15);">
+            <div>Export</div>
+          </div>
+        </div>
+        
+        <div class="zc-commands">
+          <div id="html-btn15" class="zc-btn" onclick="toggle(&apos;html&apos;, 15)">HTML</div>
+          <!--<div id="js-btn15" class="zc-btn" onclick="toggle('js', 15)">JavaScript</div>-->
+          <!--<div id="css-btn15" class="zc-btn" onclick="toggle('css', 15)">CSS</div>-->
+          <div id="result-btn15" class="zc-btn" onclick="toggle(&apos;result&apos;, 15)">Result</div>
+        </div>
+      </div>
+      <div class="zc-content">
+        <div id="html15" class="zc-cont" style="display:none; ">
+          <div class="editor" id="codeeditor15" data-settings="{&quot;readOnly&quot;:&quot;true&quot;,&quot;mode&quot;:&quot;html&quot;,&quot;theme&quot;:&quot;github&quot;,&quot;maxLines&quot;:&quot;500&quot;}">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;input type=&quot;file&quot; id=&quot;file&quot;&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		var fileChunk = function(options = {file:&apos;&apos;}){
 
-    function resolve(value) {
-        setTimeout(()=&gt;{
-            console.log(&apos;resovle:&apos;+value);
-            console.log(succallbacks);
-            succallbacks.forEach((callback) =&gt; {
-                callback(value);
-            })
-        },0)
-    }
 
-    function reject(value) {
-        setTimeout(()=&gt;{
-            failcallbacks.forEach((callback) =&gt; {
-                callback(value);
-            })
-        },0)
+		var setting ={
+			...options
+		}
+		var start = 0,
+		end = 0,
+		chunkSize = 1024000,
+		currentChunk = 0,
+		tmpDataList = [];
 
-    }
+		var taskId =(new Date()).getTime()+&apos;&apos;+parseInt(Math.random()*10000000);
+		var chunks = Math.ceil(setting.file.size / chunkSize);
+		console.log(taskId,chunks);
 
-    fn(resolve, reject);
+		var  blobSlice =
+	        window.File.prototype.slice ||
+	        window.File.prototype.mozSlice ||
+	        window.File.prototype.webkitSlice;
+	 
+
+
+	    var inner = function(){
+	    	(start = currentChunk * chunkSize),
+		                (end =
+		                    start + chunkSize &gt;= setting.file.size
+		                        ? setting.file.size
+		                        : start + chunkSize);
+
+		            let pieceFile = blobSlice.call(
+		                setting.file,
+		                start,
+		                end
+		            );
+
+		            console.log(pieceFile);
+
+
+		            pieceFile.name = setting.file.name;
+		            let tmpObj = {
+		            	fileName:setting.file.name,
+		            	fileType:setting.file.type,
+		                file: pieceFile,
+		                // currentSize: end - start,
+		                // currentNum: currentChunk,
+		                taskId:taskId,
+		                chunk:tmpDataList.length,
+		                totalChunk:chunks,
+		                totalSize:setting.file.size
+				    };
+
+				    tmpDataList.push(tmpObj);
+		            currentChunk++;
+
+			if (currentChunk &lt; chunks) {
+			   inner();
+			}	    
+	    }
+			   inner();
+
+
+
+	    return tmpDataList;
 }
-var a = new Promise((resolve, reject)=&gt;{
-    setTimeout(()=&gt;{
-        var img = new Image();
-        img.onload = function(){
-            resolve(this);
-        }
-        img.src = &apos;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&apos;;
+		
+	window.onload = function(){
+		var dom = document.getElementById(&apos;file&apos;);
+		dom.onchange = function(e){
 
-    },1000)
-});
-a.then(res=&gt;{
-    console.log(res);
-    document.body.appendChild(res)
-})
-</code></pre><footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2021-08-14 00:37:44
+			var chunks = fileChunk({file:e.target.files[0]});
+			console.log(chunks);
+		}
+
+	}
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+        </div><div id="result15" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
+        <div id="js15" class="zc-cont" style="display:none">
+          <pre id="js-code15" class="prettyprint linenums"></pre>
+        </div>
+  
+        <div id="css15" class="zc-cont" style="display:none">
+          <pre id="css-code15" class="prettyprint linenums"></pre>
+        </div>
+  
+      </div>
+  
+      <input type="hidden" id="init-html15" value="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;input type=&quot;file&quot; id=&quot;file&quot;&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		var fileChunk = function(options = {file:&apos;&apos;}){
+
+
+		var setting ={
+			...options
+		}
+		var start = 0,
+		end = 0,
+		chunkSize = 1024000,
+		currentChunk = 0,
+		tmpDataList = [];
+
+		var taskId =(new Date()).getTime()+&apos;&apos;+parseInt(Math.random()*10000000);
+		var chunks = Math.ceil(setting.file.size / chunkSize);
+		console.log(taskId,chunks);
+
+		var  blobSlice =
+	        window.File.prototype.slice ||
+	        window.File.prototype.mozSlice ||
+	        window.File.prototype.webkitSlice;
+	 
+
+
+	    var inner = function(){
+	    	(start = currentChunk * chunkSize),
+		                (end =
+		                    start + chunkSize &gt;= setting.file.size
+		                        ? setting.file.size
+		                        : start + chunkSize);
+
+		            let pieceFile = blobSlice.call(
+		                setting.file,
+		                start,
+		                end
+		            );
+
+		            console.log(pieceFile);
+
+
+		            pieceFile.name = setting.file.name;
+		            let tmpObj = {
+		            	fileName:setting.file.name,
+		            	fileType:setting.file.type,
+		                file: pieceFile,
+		                // currentSize: end - start,
+		                // currentNum: currentChunk,
+		                taskId:taskId,
+		                chunk:tmpDataList.length,
+		                totalChunk:chunks,
+		                totalSize:setting.file.size
+				    };
+
+				    tmpDataList.push(tmpObj);
+		            currentChunk++;
+
+			if (currentChunk &lt; chunks) {
+			   inner();
+			}	    
+	    }
+			   inner();
+
+
+
+	    return tmpDataList;
+}
+		
+	window.onload = function(){
+		var dom = document.getElementById(&apos;file&apos;);
+		dom.onchange = function(e){
+
+			var chunks = fileChunk({file:e.target.files[0]});
+			console.log(chunks);
+		}
+
+	}
+	&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;">
+      <input type="hidden" id="init-css15" value="">
+      <input type="hidden" id="init-js15" value="">
+      <input type="hidden" id="init-active15" value="html">
+  
+      <div style="display:none;">
+        <form method="post" id="codepen-form15" action="//codepen.io/pen/define" target="check">
+          <input id="codepen-data15" type="hidden" name="data">
+          <input type="hidden" name="wrap" value="l">
+        </form>
+      </div>
+    </div>
+  </p>
+<footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-08-14 00:51:32
 </span></footer>
                                 
                                 </section>
@@ -538,12 +711,12 @@ a.then(res=&gt;{
 
             
                 
-                <a href="overflow.html" class="navigation navigation-prev " aria-label="Previous page: 多行溢出省略号显示（ccs/js）实现！">
+                <a href="cutImg.html" class="navigation navigation-prev " aria-label="Previous page: 在线裁图">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="cutImg.html" class="navigation navigation-next " aria-label="Next page: 在线裁图">
+                <a href="problem.html" class="navigation navigation-next " aria-label="Next page: 疑难问题">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -554,7 +727,7 @@ a.then(res=&gt;{
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"实现类Promise","level":"1.3.13","depth":2,"next":{"title":"在线裁图","level":"1.3.14","depth":2,"path":"cutImg.md","ref":"cutImg.md","articles":[]},"previous":{"title":"多行溢出省略号显示（ccs/js）实现！","level":"1.3.12","depth":2,"path":"overflow.md","ref":"overflow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"diyPromise.md","mtime":"2021-08-13T16:37:44.206Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-13T17:01:13.480Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"文件分块","level":"1.3.15","depth":2,"next":{"title":"疑难问题","level":"1.4","depth":1,"path":"problem.md","ref":"problem.md","articles":[{"title":"video标签不能自动播放问题","level":"1.4.1","depth":2,"path":"video.md","ref":"video.md","articles":[]}]},"previous":{"title":"在线裁图","level":"1.3.14","depth":2,"path":"cutImg.md","ref":"cutImg.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"fileChunk.md","mtime":"2021-08-13T16:51:32.760Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-13T17:01:13.480Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
