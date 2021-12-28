@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>js 给元素添加、删除父标签 · 工作中的一些收集</title>
+        <title>css弹性盒老板本样式 · 工作中的一些收集</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="overflow.html" />
+    <link rel="next" href="js.html" />
     
     
-    <link rel="prev" href="promise.html" />
+    <link rel="prev" href="flex1.html" />
     
 
     </head>
@@ -184,7 +184,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="flex2.html">
+        <li class="chapter active" data-level="1.2.5" data-path="flex2.html">
             
                 <a href="flex2.html">
             
@@ -353,7 +353,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.11" data-path="appendOrDelParendNode.html">
+        <li class="chapter " data-level="2.1.11" data-path="appendOrDelParendNode.html">
             
                 <a href="appendOrDelParendNode.html">
             
@@ -485,7 +485,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >js 给元素添加、删除父标签</a>
+        <a href="." >css弹性盒老板本样式</a>
     </h1>
 </div>
 
@@ -500,36 +500,297 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code>&lt;img id=&quot;img&quot; src=&quot;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&quot; &gt;
-
-&lt;a href=&quot;&quot;&gt;
-    &lt;img id=&quot;img1&quot; src=&quot;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&quot; &gt;
-&lt;/a&gt;
-</code></pre><pre><code>
-window.onload = function(){
-
-
-    //&#x589E;&#x52A0;&#x7236;&#x6807;&#x7B7E;
-    var img = document.getElementById(&apos;img&apos;);
-
-    var parent = img.parentNode; 
-    if(parent.tagName.toLowerCase() != &apos;a&apos;){
-        //&#x589E;&#x52A0;&#x94FE;&#x63A5; 
-        var a = document.createElement(&apos;a&apos;);
-        a.href=&quot;http://www.baidu.com&quot;;
-        a.target = &apos;_blank&apos;;
-        img.parentNode.replaceChild(a,img);
-        a.appendChild(img);
-    }
-
-    //&#x5220;&#x9664;&#x7236;&#x6807;&#x7B7E;
-    var img1 = document.getElementById(&apos;img1&apos;);
-    img1.parentNode.parentNode.insertBefore(img1.cloneNode(true),img1.parentNode);
-    img1.parentNode.parentNode.removeChild(img1.parentNode);
-
+                                <p>
+    <div class="zc-editor" data-id="6" data-single-tab="false">
+      <div class="zc-top blue">
+        <div class="zc-actions">
+          <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(6);">
+            <div>Export</div>
+          </div>
+        </div>
+        
+        <div class="zc-commands">
+          <div id="html-btn6" class="zc-btn" onclick="toggle(&apos;html&apos;, 6)">HTML</div>
+          <!--<div id="js-btn6" class="zc-btn" onclick="toggle('js', 6)">JavaScript</div>-->
+          <!--<div id="css-btn6" class="zc-btn" onclick="toggle('css', 6)">CSS</div>-->
+          <div id="result-btn6" class="zc-btn" onclick="toggle(&apos;result&apos;, 6)">Result</div>
+        </div>
+      </div>
+      <div class="zc-content">
+        <div id="html6" class="zc-cont" style="display:none; ">
+          <div class="editor" id="codeeditor6" data-settings="{&quot;readOnly&quot;:&quot;true&quot;,&quot;mode&quot;:&quot;html&quot;,&quot;theme&quot;:&quot;github&quot;,&quot;maxLines&quot;:&quot;500&quot;}">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;style&gt;
+		html,body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #eee;
 }
-</code></pre><footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-11-13 12:16:44
+
+.flex{
+    display: -webkit-box; /* &#x8001;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box; /* &#x8001;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Firefox (buggy) */
+    display: -ms-flexbox; /* &#x6DF7;&#x5408;&#x7248;&#x672C;&#x8BED;&#x6CD5;: IE 10 */
+    display: -webkit-flex; /* &#x65B0;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Chrome 21+ */
+    display: flex; /* &#x65B0;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Opera 12.1, Firefox 22+ */ 
+}
+
+.flex_1{
+  -moz-box-flex:1.0; /* Firefox */
+-webkit-box-flex:1.0; /* Safari and Chrome */
+box-flex:1;
+flex:1;
+}
+
+.flex_2{
+  -moz-box-flex:2; /* Firefox */
+-webkit-box-flex:2; /* Safari and Chrome */
+box-flex:2;
+flex:2;
+}
+
+.flew_row{
+    -webkit-flex-flow:row wrap;
+-webkit-box-orient:horizontal;
+-webkit-box-lines:multiple;
+-moz-flex-flow:row wrap;
+box-orient:horizontal;
+box-lines:multiple;
+flex-flow:row wrap;
+}
+
+.flex_column{
+   flex-direction: column
+}
+
+.sec{
+    width:200px;
+    height: 200px;
+    background:#333;
+}
+.flex-align-center{ 
+
+    
+
+    -webkit-align-items:center;
+    align-items:center;
+    -webkit-justify-content: center;
+    justify-content:center;
+    
+}
+
+.flex-align-end{
+    
+
+    -webkit-align-items:flex-end;
+    align-items:flex-end;
+    -webkit-justify-content: flex-end;
+    justify-content:flex-end;
+}
+
+.flex-align-start{
+    
+
+    -webkit-align-items:flex-start;
+    align-items:flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content:flex-start;
+}
+
+
+
+
+
+
+
+.a{
+    background:red
+}
+.b{
+    background:green
+}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+	&#x6A2A;&#x5411;&#x5F39;&#x6027;&lt;br&gt;
+    &lt;div class=&quot;sec&quot;&gt;
+        &lt;div class=&quot;flex &quot;&gt;
+            &lt;div class=&quot;a flex_1&quot;&gt;dd&lt;/div&gt;
+            &lt;div class=&quot;b flex_2&quot;&gt;123&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &#x7AD6;&#x5411;&#x5F39;&#x6027;&lt;br&gt;
+    &lt;div class=&quot;sec&quot;&gt;
+        &lt;div class=&quot;flex flex_column&quot; style=&quot;height:100%&quot;&gt;
+            &lt;div class=&quot;a flex_1&quot;&gt;dd&lt;/div&gt;
+            &lt;div class=&quot;b flex_2&quot;&gt;123&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+
+    &lt;div class=&quot;sec&quot;&gt;
+        &lt;div class=&quot;flex flex-align-center&quot; style=&quot;height:100%;width:100%&quot;&gt;
+            &lt;div class=&quot;a&quot; style=&quot;width:100px;height:100px&quot;&gt;dd&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+
+
+&lt;/body&gt;
+&lt;/html&gt;</div>
+        </div><div id="result6" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
+        <div id="js6" class="zc-cont" style="display:none">
+          <pre id="js-code6" class="prettyprint linenums"></pre>
+        </div>
+  
+        <div id="css6" class="zc-cont" style="display:none">
+          <pre id="css-code6" class="prettyprint linenums"></pre>
+        </div>
+  
+      </div>
+  
+      <input type="hidden" id="init-html6" value="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;style&gt;
+		html,body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #eee;
+}
+
+.flex{
+    display: -webkit-box; /* &#x8001;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box; /* &#x8001;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Firefox (buggy) */
+    display: -ms-flexbox; /* &#x6DF7;&#x5408;&#x7248;&#x672C;&#x8BED;&#x6CD5;: IE 10 */
+    display: -webkit-flex; /* &#x65B0;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Chrome 21+ */
+    display: flex; /* &#x65B0;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Opera 12.1, Firefox 22+ */ 
+}
+
+.flex_1{
+  -moz-box-flex:1.0; /* Firefox */
+-webkit-box-flex:1.0; /* Safari and Chrome */
+box-flex:1;
+flex:1;
+}
+
+.flex_2{
+  -moz-box-flex:2; /* Firefox */
+-webkit-box-flex:2; /* Safari and Chrome */
+box-flex:2;
+flex:2;
+}
+
+.flew_row{
+    -webkit-flex-flow:row wrap;
+-webkit-box-orient:horizontal;
+-webkit-box-lines:multiple;
+-moz-flex-flow:row wrap;
+box-orient:horizontal;
+box-lines:multiple;
+flex-flow:row wrap;
+}
+
+.flex_column{
+   flex-direction: column
+}
+
+.sec{
+    width:200px;
+    height: 200px;
+    background:#333;
+}
+.flex-align-center{ 
+
+    
+
+    -webkit-align-items:center;
+    align-items:center;
+    -webkit-justify-content: center;
+    justify-content:center;
+    
+}
+
+.flex-align-end{
+    
+
+    -webkit-align-items:flex-end;
+    align-items:flex-end;
+    -webkit-justify-content: flex-end;
+    justify-content:flex-end;
+}
+
+.flex-align-start{
+    
+
+    -webkit-align-items:flex-start;
+    align-items:flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content:flex-start;
+}
+
+
+
+
+
+
+
+.a{
+    background:red
+}
+.b{
+    background:green
+}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+	&#x6A2A;&#x5411;&#x5F39;&#x6027;&lt;br&gt;
+    &lt;div class=&quot;sec&quot;&gt;
+        &lt;div class=&quot;flex &quot;&gt;
+            &lt;div class=&quot;a flex_1&quot;&gt;dd&lt;/div&gt;
+            &lt;div class=&quot;b flex_2&quot;&gt;123&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &#x7AD6;&#x5411;&#x5F39;&#x6027;&lt;br&gt;
+    &lt;div class=&quot;sec&quot;&gt;
+        &lt;div class=&quot;flex flex_column&quot; style=&quot;height:100%&quot;&gt;
+            &lt;div class=&quot;a flex_1&quot;&gt;dd&lt;/div&gt;
+            &lt;div class=&quot;b flex_2&quot;&gt;123&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+
+    &lt;div class=&quot;sec&quot;&gt;
+        &lt;div class=&quot;flex flex-align-center&quot; style=&quot;height:100%;width:100%&quot;&gt;
+            &lt;div class=&quot;a&quot; style=&quot;width:100px;height:100px&quot;&gt;dd&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+
+
+&lt;/body&gt;
+&lt;/html&gt;">
+      <input type="hidden" id="init-css6" value="">
+      <input type="hidden" id="init-js6" value="">
+      <input type="hidden" id="init-active6" value="html">
+  
+      <div style="display:none;">
+        <form method="post" id="codepen-form6" action="//codepen.io/pen/define" target="check">
+          <input id="codepen-data6" type="hidden" name="data">
+          <input type="hidden" name="wrap" value="l">
+        </form>
+      </div>
+    </div>
+  </p>
+<footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2021-12-28 15:37:30
 </span></footer>
                                 
                                 </section>
@@ -557,12 +818,12 @@ window.onload = function(){
 
             
                 
-                <a href="promise.html" class="navigation navigation-prev " aria-label="Previous page: 多个Promise实现">
+                <a href="flex1.html" class="navigation navigation-prev " aria-label="Previous page: css弹性盒新版本样式">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="overflow.html" class="navigation navigation-next " aria-label="Next page: 多行溢出省略号显示（ccs/js）实现！">
+                <a href="js.html" class="navigation navigation-next " aria-label="Next page: js">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -573,7 +834,7 @@ window.onload = function(){
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"js 给元素添加、删除父标签","level":"2.1.11","depth":2,"next":{"title":"多行溢出省略号显示（ccs/js）实现！","level":"2.1.12","depth":2,"path":"overflow.md","ref":"overflow.md","articles":[]},"previous":{"title":"多个Promise实现","level":"2.1.10","depth":2,"path":"promise.md","ref":"promise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"appendOrDelParendNode.md","mtime":"2020-11-13T04:16:44.124Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-28T07:37:39.029Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"css弹性盒老板本样式","level":"1.2.5","depth":2,"next":{"title":"js","level":"2.1","depth":1,"path":"js.md","ref":"js.md","articles":[{"title":"根据关系线生成布局","level":"2.1.1","depth":2,"path":"sf.md","ref":"sf.md","articles":[]},{"title":"原生JS实现球面展示特效","level":"2.1.2","depth":2,"path":"ball.md","ref":"ball.md","articles":[]},{"title":"拖动一","level":"2.1.3","depth":2,"path":"drag1.md","ref":"drag1.md","articles":[]},{"title":"拖动二","level":"2.1.4","depth":2,"path":"drag2.md","ref":"drag2.md","articles":[]},{"title":"文本框输入@触发选择菜单","level":"2.1.5","depth":2,"path":"selectMenu.md","ref":"selectMenu.md","articles":[]},{"title":"textarea选中文字","level":"2.1.6","depth":2,"path":"textareaSelect.md","ref":"textareaSelect.md","articles":[]},{"title":"node连线算法","level":"2.1.7","depth":2,"path":"nodelink.md","ref":"nodelink.md","articles":[]},{"title":"仿有道云笔记网页剪报算法","level":"2.1.8","depth":2,"path":"yd.md","ref":"yd.md","articles":[]},{"title":"基于Qcanvas实现画布即时渲染textarea输入的文本","level":"2.1.9","depth":2,"path":"textarea.md","ref":"textarea.md","articles":[]},{"title":"多个Promise实现","level":"2.1.10","depth":2,"path":"promise.md","ref":"promise.md","articles":[]},{"title":"js 给元素添加、删除父标签","level":"2.1.11","depth":2,"path":"appendOrDelParendNode.md","ref":"appendOrDelParendNode.md","articles":[]},{"title":"多行溢出省略号显示（ccs/js）实现！","level":"2.1.12","depth":2,"path":"overflow.md","ref":"overflow.md","articles":[]},{"title":"实现类Promise","level":"2.1.13","depth":2,"path":"diyPromise.md","ref":"diyPromise.md","articles":[]},{"title":"在线裁图","level":"2.1.14","depth":2,"path":"cutImg.md","ref":"cutImg.md","articles":[]},{"title":"文件分块","level":"2.1.15","depth":2,"path":"fileChunk.md","ref":"fileChunk.md","articles":[]}]},"previous":{"title":"css弹性盒新版本样式","level":"1.2.4","depth":2,"path":"flex1.md","ref":"flex1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"flex2.md","mtime":"2021-12-28T07:37:30.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-28T07:37:39.029Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
