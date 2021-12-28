@@ -523,123 +523,66 @@
 &lt;head&gt;
 	&lt;title&gt;&lt;/title&gt;
 	&lt;style&gt;
-		html,body{
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-    background: #eee;
+		.box {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box
 }
 
-.flex{
-    display: -webkit-box; /* &#x8001;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Safari, iOS, Android browser, older WebKit browsers. */
-    display: -moz-box; /* &#x8001;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Firefox (buggy) */
-    display: -ms-flexbox; /* &#x6DF7;&#x5408;&#x7248;&#x672C;&#x8BED;&#x6CD5;: IE 10 */
-    display: -webkit-flex; /* &#x65B0;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Chrome 21+ */
-    display: flex; /* &#x65B0;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Opera 12.1, Firefox 22+ */ 
+.box-orient-vertical {
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
 }
 
-.flex_1{
-  -moz-box-flex:1.0; /* Firefox */
--webkit-box-flex:1.0; /* Safari and Chrome */
-box-flex:1;
-flex:1;
+.box-flex-1 {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1
 }
 
-.flex_2{
-  -moz-box-flex:2; /* Firefox */
--webkit-box-flex:2; /* Safari and Chrome */
-box-flex:2;
-flex:2;
+.box-flex-2 {
+    -webkit-box-flex: 2;
+    -moz-box-flex: 2
 }
 
-.flew_row{
-    -webkit-flex-flow:row wrap;
--webkit-box-orient:horizontal;
--webkit-box-lines:multiple;
--moz-flex-flow:row wrap;
-box-orient:horizontal;
-box-lines:multiple;
-flex-flow:row wrap;
+.box-align-start {
+    -webkit-box-pack: start;
+    -webkit-box-align: start;
+    -moz-box-pack: start;
+    -moz-box-align: start
 }
 
-.flex_column{
-   flex-direction: column
+.box-align-center {
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center
 }
 
-.sec{
-    width:200px;
-    height: 200px;
-    background:#333;
+.box-align-end {
+    -webkit-box-pack: end;
+    -webkit-box-align: end;
+    -moz-box-pack: end;
+    -moz-box-align: end
 }
-.flex-align-center{ 
-
-    
-
-    -webkit-align-items:center;
-    align-items:center;
-    -webkit-justify-content: center;
-    justify-content:center;
-    
-}
-
-.flex-align-end{
-    
-
-    -webkit-align-items:flex-end;
-    align-items:flex-end;
-    -webkit-justify-content: flex-end;
-    justify-content:flex-end;
-}
-
-.flex-align-start{
-    
-
-    -webkit-align-items:flex-start;
-    align-items:flex-start;
-    -webkit-justify-content: flex-start;
-    justify-content:flex-start;
-}
-
-
-
-
-
-
 
 .a{
-    background:red
+    width: 200px;
+    height: 200px;
+    background: red;
 }
+
 .b{
-    background:green
+    width: 100px;
+    height: 100px;
+    background: blue
 }
 	&lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-
-	&#x6A2A;&#x5411;&#x5F39;&#x6027;&lt;br&gt;
-    &lt;div class=&quot;sec&quot;&gt;
-        &lt;div class=&quot;flex &quot;&gt;
-            &lt;div class=&quot;a flex_1&quot;&gt;dd&lt;/div&gt;
-            &lt;div class=&quot;b flex_2&quot;&gt;123&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &#x7AD6;&#x5411;&#x5F39;&#x6027;&lt;br&gt;
-    &lt;div class=&quot;sec&quot;&gt;
-        &lt;div class=&quot;flex flex_column&quot; style=&quot;height:100%&quot;&gt;
-            &lt;div class=&quot;a flex_1&quot;&gt;dd&lt;/div&gt;
-            &lt;div class=&quot;b flex_2&quot;&gt;123&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-
-    &lt;div class=&quot;sec&quot;&gt;
-        &lt;div class=&quot;flex flex-align-center&quot; style=&quot;height:100%;width:100%&quot;&gt;
-            &lt;div class=&quot;a&quot; style=&quot;width:100px;height:100px&quot;&gt;dd&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-
-
+&lt;div class=&quot;a box  box-align-center&quot;&gt;
+    &lt;div class=&quot;b&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;</div>
         </div><div id="result6" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
@@ -658,123 +601,66 @@ flex-flow:row wrap;
 &lt;head&gt;
 	&lt;title&gt;&lt;/title&gt;
 	&lt;style&gt;
-		html,body{
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-    background: #eee;
+		.box {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box
 }
 
-.flex{
-    display: -webkit-box; /* &#x8001;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Safari, iOS, Android browser, older WebKit browsers. */
-    display: -moz-box; /* &#x8001;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Firefox (buggy) */
-    display: -ms-flexbox; /* &#x6DF7;&#x5408;&#x7248;&#x672C;&#x8BED;&#x6CD5;: IE 10 */
-    display: -webkit-flex; /* &#x65B0;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Chrome 21+ */
-    display: flex; /* &#x65B0;&#x7248;&#x672C;&#x8BED;&#x6CD5;: Opera 12.1, Firefox 22+ */ 
+.box-orient-vertical {
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
 }
 
-.flex_1{
-  -moz-box-flex:1.0; /* Firefox */
--webkit-box-flex:1.0; /* Safari and Chrome */
-box-flex:1;
-flex:1;
+.box-flex-1 {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1
 }
 
-.flex_2{
-  -moz-box-flex:2; /* Firefox */
--webkit-box-flex:2; /* Safari and Chrome */
-box-flex:2;
-flex:2;
+.box-flex-2 {
+    -webkit-box-flex: 2;
+    -moz-box-flex: 2
 }
 
-.flew_row{
-    -webkit-flex-flow:row wrap;
--webkit-box-orient:horizontal;
--webkit-box-lines:multiple;
--moz-flex-flow:row wrap;
-box-orient:horizontal;
-box-lines:multiple;
-flex-flow:row wrap;
+.box-align-start {
+    -webkit-box-pack: start;
+    -webkit-box-align: start;
+    -moz-box-pack: start;
+    -moz-box-align: start
 }
 
-.flex_column{
-   flex-direction: column
+.box-align-center {
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center
 }
 
-.sec{
-    width:200px;
-    height: 200px;
-    background:#333;
+.box-align-end {
+    -webkit-box-pack: end;
+    -webkit-box-align: end;
+    -moz-box-pack: end;
+    -moz-box-align: end
 }
-.flex-align-center{ 
-
-    
-
-    -webkit-align-items:center;
-    align-items:center;
-    -webkit-justify-content: center;
-    justify-content:center;
-    
-}
-
-.flex-align-end{
-    
-
-    -webkit-align-items:flex-end;
-    align-items:flex-end;
-    -webkit-justify-content: flex-end;
-    justify-content:flex-end;
-}
-
-.flex-align-start{
-    
-
-    -webkit-align-items:flex-start;
-    align-items:flex-start;
-    -webkit-justify-content: flex-start;
-    justify-content:flex-start;
-}
-
-
-
-
-
-
 
 .a{
-    background:red
+    width: 200px;
+    height: 200px;
+    background: red;
 }
+
 .b{
-    background:green
+    width: 100px;
+    height: 100px;
+    background: blue
 }
 	&lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
-
-	&#x6A2A;&#x5411;&#x5F39;&#x6027;&lt;br&gt;
-    &lt;div class=&quot;sec&quot;&gt;
-        &lt;div class=&quot;flex &quot;&gt;
-            &lt;div class=&quot;a flex_1&quot;&gt;dd&lt;/div&gt;
-            &lt;div class=&quot;b flex_2&quot;&gt;123&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &#x7AD6;&#x5411;&#x5F39;&#x6027;&lt;br&gt;
-    &lt;div class=&quot;sec&quot;&gt;
-        &lt;div class=&quot;flex flex_column&quot; style=&quot;height:100%&quot;&gt;
-            &lt;div class=&quot;a flex_1&quot;&gt;dd&lt;/div&gt;
-            &lt;div class=&quot;b flex_2&quot;&gt;123&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-
-    &lt;div class=&quot;sec&quot;&gt;
-        &lt;div class=&quot;flex flex-align-center&quot; style=&quot;height:100%;width:100%&quot;&gt;
-            &lt;div class=&quot;a&quot; style=&quot;width:100px;height:100px&quot;&gt;dd&lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-
-
+&lt;div class=&quot;a box  box-align-center&quot;&gt;
+    &lt;div class=&quot;b&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;">
       <input type="hidden" id="init-css6" value="">
@@ -790,7 +676,7 @@ flex-flow:row wrap;
     </div>
   </p>
 <footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2021-12-28 15:37:30
+2021-12-28 15:49:15
 </span></footer>
                                 
                                 </section>
@@ -834,7 +720,7 @@ flex-flow:row wrap;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"css弹性盒老板本样式","level":"1.2.5","depth":2,"next":{"title":"js","level":"2.1","depth":1,"path":"js.md","ref":"js.md","articles":[{"title":"根据关系线生成布局","level":"2.1.1","depth":2,"path":"sf.md","ref":"sf.md","articles":[]},{"title":"原生JS实现球面展示特效","level":"2.1.2","depth":2,"path":"ball.md","ref":"ball.md","articles":[]},{"title":"拖动一","level":"2.1.3","depth":2,"path":"drag1.md","ref":"drag1.md","articles":[]},{"title":"拖动二","level":"2.1.4","depth":2,"path":"drag2.md","ref":"drag2.md","articles":[]},{"title":"文本框输入@触发选择菜单","level":"2.1.5","depth":2,"path":"selectMenu.md","ref":"selectMenu.md","articles":[]},{"title":"textarea选中文字","level":"2.1.6","depth":2,"path":"textareaSelect.md","ref":"textareaSelect.md","articles":[]},{"title":"node连线算法","level":"2.1.7","depth":2,"path":"nodelink.md","ref":"nodelink.md","articles":[]},{"title":"仿有道云笔记网页剪报算法","level":"2.1.8","depth":2,"path":"yd.md","ref":"yd.md","articles":[]},{"title":"基于Qcanvas实现画布即时渲染textarea输入的文本","level":"2.1.9","depth":2,"path":"textarea.md","ref":"textarea.md","articles":[]},{"title":"多个Promise实现","level":"2.1.10","depth":2,"path":"promise.md","ref":"promise.md","articles":[]},{"title":"js 给元素添加、删除父标签","level":"2.1.11","depth":2,"path":"appendOrDelParendNode.md","ref":"appendOrDelParendNode.md","articles":[]},{"title":"多行溢出省略号显示（ccs/js）实现！","level":"2.1.12","depth":2,"path":"overflow.md","ref":"overflow.md","articles":[]},{"title":"实现类Promise","level":"2.1.13","depth":2,"path":"diyPromise.md","ref":"diyPromise.md","articles":[]},{"title":"在线裁图","level":"2.1.14","depth":2,"path":"cutImg.md","ref":"cutImg.md","articles":[]},{"title":"文件分块","level":"2.1.15","depth":2,"path":"fileChunk.md","ref":"fileChunk.md","articles":[]}]},"previous":{"title":"css弹性盒新版本样式","level":"1.2.4","depth":2,"path":"flex1.md","ref":"flex1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"flex2.md","mtime":"2021-12-28T07:37:30.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-28T07:37:39.029Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"css弹性盒老板本样式","level":"1.2.5","depth":2,"next":{"title":"js","level":"2.1","depth":1,"path":"js.md","ref":"js.md","articles":[{"title":"根据关系线生成布局","level":"2.1.1","depth":2,"path":"sf.md","ref":"sf.md","articles":[]},{"title":"原生JS实现球面展示特效","level":"2.1.2","depth":2,"path":"ball.md","ref":"ball.md","articles":[]},{"title":"拖动一","level":"2.1.3","depth":2,"path":"drag1.md","ref":"drag1.md","articles":[]},{"title":"拖动二","level":"2.1.4","depth":2,"path":"drag2.md","ref":"drag2.md","articles":[]},{"title":"文本框输入@触发选择菜单","level":"2.1.5","depth":2,"path":"selectMenu.md","ref":"selectMenu.md","articles":[]},{"title":"textarea选中文字","level":"2.1.6","depth":2,"path":"textareaSelect.md","ref":"textareaSelect.md","articles":[]},{"title":"node连线算法","level":"2.1.7","depth":2,"path":"nodelink.md","ref":"nodelink.md","articles":[]},{"title":"仿有道云笔记网页剪报算法","level":"2.1.8","depth":2,"path":"yd.md","ref":"yd.md","articles":[]},{"title":"基于Qcanvas实现画布即时渲染textarea输入的文本","level":"2.1.9","depth":2,"path":"textarea.md","ref":"textarea.md","articles":[]},{"title":"多个Promise实现","level":"2.1.10","depth":2,"path":"promise.md","ref":"promise.md","articles":[]},{"title":"js 给元素添加、删除父标签","level":"2.1.11","depth":2,"path":"appendOrDelParendNode.md","ref":"appendOrDelParendNode.md","articles":[]},{"title":"多行溢出省略号显示（ccs/js）实现！","level":"2.1.12","depth":2,"path":"overflow.md","ref":"overflow.md","articles":[]},{"title":"实现类Promise","level":"2.1.13","depth":2,"path":"diyPromise.md","ref":"diyPromise.md","articles":[]},{"title":"在线裁图","level":"2.1.14","depth":2,"path":"cutImg.md","ref":"cutImg.md","articles":[]},{"title":"文件分块","level":"2.1.15","depth":2,"path":"fileChunk.md","ref":"fileChunk.md","articles":[]}]},"previous":{"title":"css弹性盒新版本样式","level":"1.2.4","depth":2,"path":"flex1.md","ref":"flex1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"flex2.md","mtime":"2021-12-28T07:49:15.074Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-12-28T07:49:27.079Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
