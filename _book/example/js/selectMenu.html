@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{padding:0;margin:0;}
+        .box{position:relatuve;}
+        #ipt{
+            font-size:16px;
+            padding-left:5px;
+            line-height:30px;
+        }
+        #list{
+            position:absolute;
+            list-style:none;
+            width:150px;
+            display:none;
+        }
+        #list li{height:25px;line-height:25px;}
+        #list li:hover{background:#efefef;cursor:pointer;}
+    </style>
+</head>
+<body>
+    <div class='box'>
+        <textarea rows="3" cols="20" id='ipt'></textarea>
+        <ul id='list'>
+            <li>qq.com</li><li>sina.com</li><li>163.com</li>
+        </ul>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+	window.onload = function(){
+  
+  var ipt = document.getElementById('ipt');   
+        var list = document.getElementById('list');
+
+        ipt.oninput = function(e){
+            //console.log(e)
+            //获取光标位置
+            var position = getPosition(ipt);
+            ipt.value = ipt.value || '';
+            //如果光标后面是空格或没有内容,且光标前面最后一个是@
+            var s = ipt.value.charAt(position)
+            if((s == "" || s == " ") && ipt.value.charAt(position-1) == "@"){
+                var iStyle = window.getComputedStyle(ipt),
+                    fz = parseFloat(iStyle.fontSize),//字体大小
+                    wd = parseFloat(iStyle.width),//文本域宽度
+                    lh = parseFloat(iStyle.lineHeight),//行高
+                    pd = parseFloat(iStyle.paddingLeft),//左内边距
+
+                    newStr = ipt.value.substr(0,position+1),
+                    //有换行符根据换行符拆分
+                    valArr = newStr.indexOf("\n")!==-1 ? newStr.split("\n") : [ipt.value];
+                for(var i=0,j=0;i<valArr.length;i++){
+                    //把双字节的替换成两个单字节的然后再获得长度 
+                    var len = valArr[i].replace(/[^\x00-\xff]/g,"01").length/2;
+                    j += Math.ceil((len*fz)/wd);
+                }
+                list.style.left = (len*fz)%wd==0?wd:(len*fz)%wd + pd + "px";
+                list.style.top = j*lh + "px";
+                list.style.display = "block";
+            }else{
+                list.style.display = "none";
+            }
+        }
+
+        for(var i=0;i<list.children.length;i++){
+            list.children[i].onclick = function(e){
+                ipt.value += e.target.innerHTML;
+                list.style.display = "none";
+            }
+        }
+        //输入框获取光标
+        function getPosition(element) {
+            var cursorPos = 0;
+            if (document.selection) {//IE
+                var selectRange = document.selection.createRange();
+                selectRange.moveStart('character', -element.value.length);
+                cursorPos = selectRange.text.length;
+            } else if (element.selectionStart || element.selectionStart == '0') {
+                cursorPos = element.selectionStart;
+            }
+            return cursorPos;
+        } 
+  
+  
+}				
+
+
+</script>
