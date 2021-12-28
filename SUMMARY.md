@@ -7,6 +7,9 @@
   * [图片倾斜效果css3](css3.md)
   * [正反面翻转](perspective.md)
   * [css动画](transation.md)
+  * [css弹性盒新版本样式](flex1.md)
+  * [css弹性盒老板本样式](flex2.md)
+
   
 * [js](js.md)
   * [根据关系线生成布局](sf.md)
