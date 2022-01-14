@@ -40,8 +40,7 @@ require(['gitbook', 'jQuery'], function(gitbook, $) {
      * Add line numbers for multiline blocks.
      */
     code = block.children('code');
-    console.log(code);
-    lines = typeof code.html() != 'undefined' ? code.html().split('\n'):[];
+    lines = code.html().split('\n');
 
     if (lines[lines.length - 1] == '') {
       lines.splice(-1, 1);
