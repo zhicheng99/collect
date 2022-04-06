@@ -27,6 +27,9 @@
   * [实现类Promise](diyPromise.md)
   * [在线裁图](cutImg.md)
   * [文件分块](fileChunk.md)
+  * [旋转木马效果](carousel.md)
+
+
   
 * [疑难问题](problem.md)
   * [video标签不能自动播放问题](video.md)
