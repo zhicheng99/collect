@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>文件分块 · 工作中的一些收集</title>
+        <title>css箭头动画效果 · 工作中的一些收集</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="carousel.html" />
+    <link rel="next" href="js.html" />
     
     
-    <link rel="prev" href="cutImg.html" />
+    <link rel="prev" href="flex2.html" />
     
 
     </head>
@@ -197,7 +197,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="jiantou.html">
+        <li class="chapter active" data-level="1.2.6" data-path="jiantou.html">
             
                 <a href="jiantou.html">
             
@@ -411,7 +411,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.15" data-path="fileChunk.html">
+        <li class="chapter " data-level="1.3.15" data-path="fileChunk.html">
             
                 <a href="fileChunk.html">
             
@@ -511,7 +511,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >文件分块</a>
+        <a href="." >css箭头动画效果</a>
     </h1>
 </div>
 
@@ -527,222 +527,192 @@
                                 <section class="normal markdown-section">
                                 
                                 <p>
-    <div class="zc-editor" data-id="18" data-single-tab="false">
+    <div class="zc-editor" data-id="7" data-single-tab="false">
       <div class="zc-top blue">
         <div class="zc-actions">
-          <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(18);">
+          <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(7);">
             <div>Export</div>
           </div>
         </div>
         
         <div class="zc-commands">
-          <div id="html-btn18" class="zc-btn" onclick="toggle(&apos;html&apos;, 18)">HTML</div>
-          <!--<div id="js-btn18" class="zc-btn" onclick="toggle('js', 18)">JavaScript</div>-->
-          <!--<div id="css-btn18" class="zc-btn" onclick="toggle('css', 18)">CSS</div>-->
-          <div id="result-btn18" class="zc-btn" onclick="toggle(&apos;result&apos;, 18)">Result</div>
+          <div id="html-btn7" class="zc-btn" onclick="toggle(&apos;html&apos;, 7)">HTML</div>
+          <!--<div id="js-btn7" class="zc-btn" onclick="toggle('js', 7)">JavaScript</div>-->
+          <!--<div id="css-btn7" class="zc-btn" onclick="toggle('css', 7)">CSS</div>-->
+          <div id="result-btn7" class="zc-btn" onclick="toggle(&apos;result&apos;, 7)">Result</div>
         </div>
       </div>
       <div class="zc-content">
-        <div id="html18" class="zc-cont" style="display:none; ">
-          <div class="editor" id="codeeditor18" data-settings="{&quot;readOnly&quot;:&quot;true&quot;,&quot;mode&quot;:&quot;html&quot;,&quot;theme&quot;:&quot;github&quot;,&quot;maxLines&quot;:&quot;500&quot;}">&lt;!DOCTYPE html&gt;
+        <div id="html7" class="zc-cont" style="display:none; ">
+          <div class="editor" id="codeeditor7" data-settings="{&quot;readOnly&quot;:&quot;true&quot;,&quot;mode&quot;:&quot;html&quot;,&quot;theme&quot;:&quot;github&quot;,&quot;maxLines&quot;:&quot;500&quot;}">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-	&lt;meta charset=&quot;utf-8&quot;&gt;
-	&lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;input type=&quot;file&quot; id=&quot;file&quot;&gt;
-	&lt;script type=&quot;text/javascript&quot;&gt;
-		var fileChunk = function(options = {file:&apos;&apos;}){
-
-
-		var setting ={
-			...options
-		}
-		var start = 0,
-		end = 0,
-		chunkSize = 1024000,
-		currentChunk = 0,
-		tmpDataList = [];
-
-		var taskId =(new Date()).getTime()+&apos;&apos;+parseInt(Math.random()*10000000);
-		var chunks = Math.ceil(setting.file.size / chunkSize);
-		console.log(taskId,chunks);
-
-		var  blobSlice =
-	        window.File.prototype.slice ||
-	        window.File.prototype.mozSlice ||
-	        window.File.prototype.webkitSlice;
-	 
-
-
-	    var inner = function(){
-	    	(start = currentChunk * chunkSize),
-		                (end =
-		                    start + chunkSize &gt;= setting.file.size
-		                        ? setting.file.size
-		                        : start + chunkSize);
-
-		            let pieceFile = blobSlice.call(
-		                setting.file,
-		                start,
-		                end
-		            );
-
-		            console.log(pieceFile);
-
-
-		            pieceFile.name = setting.file.name;
-		            let tmpObj = {
-		            	fileName:setting.file.name,
-		            	fileType:setting.file.type,
-		                file: pieceFile,
-		                // currentSize: end - start,
-		                // currentNum: currentChunk,
-		                taskId:taskId,
-		                chunk:tmpDataList.length,
-		                totalChunk:chunks,
-		                totalSize:setting.file.size
-				    };
-
-				    tmpDataList.push(tmpObj);
-		            currentChunk++;
-
-			if (currentChunk &lt; chunks) {
-			   inner();
-			}	    
-	    }
-			   inner();
-
-
-
-	    return tmpDataList;
+	&lt;meta charset=&quot;UTF-8&quot;&gt;
+	&lt;title&gt;Document&lt;/title&gt;
+	&lt;style&gt;
+	 .Previous {
+  position: absolute;
+  left:10px;
+  top:0;
+  margin-top:-21px;
+  width: 50px !important;
+    height: 90px !important;
+    cursor: pointer;
+    pointer-events: none;
 }
-		
-	window.onload = function(){
-		var dom = document.getElementById(&apos;file&apos;);
-		dom.onchange = function(e){
+ 
+.Previous .s1 {
 
-			var chunks = fileChunk({file:e.target.files[0]});
-			console.log(chunks);
-		}
+  position: absolute;
+  top:0;
+  left:0px;
+}
+.Previous .s2 {
 
-	}
-	&lt;/script&gt;
+  position: absolute;
+  top:0;
+  left:10px;
+} 
+.s2 {
+ -webkit-animation:move 2s  ease-in-out infinite;
+    animation:move 2s ease-in-out infinite;
+}
+.s1 {
+ -webkit-animation:move 2s 0.5s ease-in-out infinite;
+    animation:move 2s 0.5s ease-in-out infinite;
+}
+@keyframes move{
+0%{
+    opacity: 0
+}
+50%{
+        opacity: 1
+}
+100%{
+    opacity: 0
+}
+}
+@-webkit-keyframes move{
+0%{
+    opacity: 0
+}
+50%{
+        opacity: 1
+}
+100%{
+    opacity: 0
+}
+}
+
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt; 
+
+  &lt;div  class=&quot;Previous&quot;&gt;
+    &lt;img  src=&quot;../../assets/left.png&quot; class=&quot;s1&quot;&gt;
+    &lt;img  src=&quot;../../assets/left.png&quot; class=&quot;s2&quot;&gt;
+  &lt;/div&gt;
+ 
+	
 &lt;/body&gt;
 &lt;/html&gt;</div>
-        </div><div id="result18" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
-        <div id="js18" class="zc-cont" style="display:none">
-          <pre id="js-code18" class="prettyprint linenums"></pre>
+        </div><div id="result7" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
+        <div id="js7" class="zc-cont" style="display:none">
+          <pre id="js-code7" class="prettyprint linenums"></pre>
         </div>
   
-        <div id="css18" class="zc-cont" style="display:none">
-          <pre id="css-code18" class="prettyprint linenums"></pre>
+        <div id="css7" class="zc-cont" style="display:none">
+          <pre id="css-code7" class="prettyprint linenums"></pre>
         </div>
   
       </div>
   
-      <input type="hidden" id="init-html18" value="&lt;!DOCTYPE html&gt;
+      <input type="hidden" id="init-html7" value="&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-	&lt;meta charset=&quot;utf-8&quot;&gt;
-	&lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;input type=&quot;file&quot; id=&quot;file&quot;&gt;
-	&lt;script type=&quot;text/javascript&quot;&gt;
-		var fileChunk = function(options = {file:&apos;&apos;}){
-
-
-		var setting ={
-			...options
-		}
-		var start = 0,
-		end = 0,
-		chunkSize = 1024000,
-		currentChunk = 0,
-		tmpDataList = [];
-
-		var taskId =(new Date()).getTime()+&apos;&apos;+parseInt(Math.random()*10000000);
-		var chunks = Math.ceil(setting.file.size / chunkSize);
-		console.log(taskId,chunks);
-
-		var  blobSlice =
-	        window.File.prototype.slice ||
-	        window.File.prototype.mozSlice ||
-	        window.File.prototype.webkitSlice;
-	 
-
-
-	    var inner = function(){
-	    	(start = currentChunk * chunkSize),
-		                (end =
-		                    start + chunkSize &gt;= setting.file.size
-		                        ? setting.file.size
-		                        : start + chunkSize);
-
-		            let pieceFile = blobSlice.call(
-		                setting.file,
-		                start,
-		                end
-		            );
-
-		            console.log(pieceFile);
-
-
-		            pieceFile.name = setting.file.name;
-		            let tmpObj = {
-		            	fileName:setting.file.name,
-		            	fileType:setting.file.type,
-		                file: pieceFile,
-		                // currentSize: end - start,
-		                // currentNum: currentChunk,
-		                taskId:taskId,
-		                chunk:tmpDataList.length,
-		                totalChunk:chunks,
-		                totalSize:setting.file.size
-				    };
-
-				    tmpDataList.push(tmpObj);
-		            currentChunk++;
-
-			if (currentChunk &lt; chunks) {
-			   inner();
-			}	    
-	    }
-			   inner();
-
-
-
-	    return tmpDataList;
+	&lt;meta charset=&quot;UTF-8&quot;&gt;
+	&lt;title&gt;Document&lt;/title&gt;
+	&lt;style&gt;
+	 .Previous {
+  position: absolute;
+  left:10px;
+  top:0;
+  margin-top:-21px;
+  width: 50px !important;
+    height: 90px !important;
+    cursor: pointer;
+    pointer-events: none;
 }
-		
-	window.onload = function(){
-		var dom = document.getElementById(&apos;file&apos;);
-		dom.onchange = function(e){
+ 
+.Previous .s1 {
 
-			var chunks = fileChunk({file:e.target.files[0]});
-			console.log(chunks);
-		}
+  position: absolute;
+  top:0;
+  left:0px;
+}
+.Previous .s2 {
 
-	}
-	&lt;/script&gt;
+  position: absolute;
+  top:0;
+  left:10px;
+} 
+.s2 {
+ -webkit-animation:move 2s  ease-in-out infinite;
+    animation:move 2s ease-in-out infinite;
+}
+.s1 {
+ -webkit-animation:move 2s 0.5s ease-in-out infinite;
+    animation:move 2s 0.5s ease-in-out infinite;
+}
+@keyframes move{
+0%{
+    opacity: 0
+}
+50%{
+        opacity: 1
+}
+100%{
+    opacity: 0
+}
+}
+@-webkit-keyframes move{
+0%{
+    opacity: 0
+}
+50%{
+        opacity: 1
+}
+100%{
+    opacity: 0
+}
+}
+
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt; 
+
+  &lt;div  class=&quot;Previous&quot;&gt;
+    &lt;img  src=&quot;../../assets/left.png&quot; class=&quot;s1&quot;&gt;
+    &lt;img  src=&quot;../../assets/left.png&quot; class=&quot;s2&quot;&gt;
+  &lt;/div&gt;
+ 
+	
 &lt;/body&gt;
 &lt;/html&gt;">
-      <input type="hidden" id="init-css18" value="">
-      <input type="hidden" id="init-js18" value="">
-      <input type="hidden" id="init-active18" value="html">
+      <input type="hidden" id="init-css7" value="">
+      <input type="hidden" id="init-js7" value="">
+      <input type="hidden" id="init-active7" value="html">
   
       <div style="display:none;">
-        <form method="post" id="codepen-form18" action="//codepen.io/pen/define" target="check">
-          <input id="codepen-data18" type="hidden" name="data">
+        <form method="post" id="codepen-form7" action="//codepen.io/pen/define" target="check">
+          <input id="codepen-data7" type="hidden" name="data">
           <input type="hidden" name="wrap" value="l">
         </form>
       </div>
     </div>
   </p>
 <footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2021-12-28 15:23:33
+2022-04-15 09:48:18
 </span></footer>
                                 
                                 </section>
@@ -770,12 +740,12 @@
 
             
                 
-                <a href="cutImg.html" class="navigation navigation-prev " aria-label="Previous page: 在线裁图">
+                <a href="flex2.html" class="navigation navigation-prev " aria-label="Previous page: css弹性盒老板本样式">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="carousel.html" class="navigation navigation-next " aria-label="Next page: 旋转木马效果">
+                <a href="js.html" class="navigation navigation-next " aria-label="Next page: js">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -786,7 +756,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"文件分块","level":"1.3.15","depth":2,"next":{"title":"旋转木马效果","level":"1.3.16","depth":2,"path":"carousel.md","ref":"carousel.md","articles":[]},"previous":{"title":"在线裁图","level":"1.3.14","depth":2,"path":"cutImg.md","ref":"cutImg.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"fileChunk.md","mtime":"2021-12-28T07:23:33.387Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-15T01:48:27.749Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"css箭头动画效果","level":"1.2.6","depth":2,"next":{"title":"js","level":"1.3","depth":1,"path":"js.md","ref":"js.md","articles":[{"title":"根据关系线生成布局","level":"1.3.1","depth":2,"path":"sf.md","ref":"sf.md","articles":[]},{"title":"原生JS实现球面展示特效","level":"1.3.2","depth":2,"path":"ball.md","ref":"ball.md","articles":[]},{"title":"拖动一","level":"1.3.3","depth":2,"path":"drag1.md","ref":"drag1.md","articles":[]},{"title":"拖动二","level":"1.3.4","depth":2,"path":"drag2.md","ref":"drag2.md","articles":[]},{"title":"文本框输入@触发选择菜单","level":"1.3.5","depth":2,"path":"selectMenu.md","ref":"selectMenu.md","articles":[]},{"title":"textarea选中文字","level":"1.3.6","depth":2,"path":"textareaSelect.md","ref":"textareaSelect.md","articles":[]},{"title":"node连线算法","level":"1.3.7","depth":2,"path":"nodelink.md","ref":"nodelink.md","articles":[]},{"title":"仿有道云笔记网页剪报算法","level":"1.3.8","depth":2,"path":"yd.md","ref":"yd.md","articles":[]},{"title":"基于Qcanvas实现画布即时渲染textarea输入的文本","level":"1.3.9","depth":2,"path":"textarea.md","ref":"textarea.md","articles":[]},{"title":"多个Promise实现","level":"1.3.10","depth":2,"path":"promise.md","ref":"promise.md","articles":[]},{"title":"js 给元素添加、删除父标签","level":"1.3.11","depth":2,"path":"appendOrDelParendNode.md","ref":"appendOrDelParendNode.md","articles":[]},{"title":"多行溢出省略号显示（ccs/js）实现！","level":"1.3.12","depth":2,"path":"overflow.md","ref":"overflow.md","articles":[]},{"title":"实现类Promise","level":"1.3.13","depth":2,"path":"diyPromise.md","ref":"diyPromise.md","articles":[]},{"title":"在线裁图","level":"1.3.14","depth":2,"path":"cutImg.md","ref":"cutImg.md","articles":[]},{"title":"文件分块","level":"1.3.15","depth":2,"path":"fileChunk.md","ref":"fileChunk.md","articles":[]},{"title":"旋转木马效果","level":"1.3.16","depth":2,"path":"carousel.md","ref":"carousel.md","articles":[]}]},"previous":{"title":"css弹性盒老板本样式","level":"1.2.5","depth":2,"path":"flex2.md","ref":"flex2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"jiantou.md","mtime":"2022-04-15T01:48:18.903Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-15T01:48:27.749Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
