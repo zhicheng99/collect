@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Typewriter effect</title>
+  </head>
+  <style>
+    body{
+      background: navajowhite;
+      background-size: cover;
+      font-family: 'Trebuchet MS', sans-serif; 
+    }
+    .container{
+      display: inline-block;
+    }
+    .typed-out{
+      overflow: hidden;
+      border-right: .15em solid orange;
+      white-space: nowrap;
+      animation: 
+      typing 1s steps(20, end) forwards;
+      font-size: 1.6rem;
+      width: 0;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+  </style>
+<body>
+<h1>I'm Matt, I'm a</h1>
+<div class="container">
+  <div class="typed-out">Web Developer</div>
+</div>
+</body>
+</html>

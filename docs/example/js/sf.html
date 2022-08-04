@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var lineData = [
+{"soruce":"1" ,"taget":"2","attr":"接口调用",status:"0"},
+{"soruce":"1" ,"taget":"3","attr":"接口调用",status:"0"},
+{"soruce":"2" ,"taget":"4","attr":"接口调用",status:"0"},
+{"soruce":"2" ,"taget":"5","attr":"接口调用",status:"0"},
+{"soruce":"3" ,"taget":"6","attr":"流程数据",status:"0"},
+{"soruce":"3" ,"taget":"7","attr":"流程数数据",status:"0"},
+{"soruce":"7" ,"taget":"8","attr":"流程数数据",status:"0"},
+{"soruce":"9" ,"taget":"10","attr":"流程数数据",status:"0"}
+
+
+]
+
+/*
+
+解析以上数据为该示例结构（每一个结点看作是一个分组）
+      1
+    /  \
+   2    3
+  / \   /\
+ 4   5  6 7
+           \
+            8 
+      9
+      |
+      10
+    
+
+*/
+
+function filterTargetId(targetArr,firstId,lineData){
+    //只保留可能从首节点一级一级都可以找到的节点 （断掉的/没有联系的丢掉）
+    console.log('需要查找到目标id');
+    console.log(targetArr);
+    console.log('首节点：'+firstId);
+
+   
+    
+    var isFindNode =function(lineData,firstNode,lastNode){ 
+
+            //从最后的元素往上走 需要多少步找到第一个元素 那么结构就是多少层
+            var finded = false
+            var inner = function(){
+                for(var i = 0; i<lineData.length; i++){
+                    if(lastNode == lineData[i].taget){
+                        if(lineData[i].soruce == firstNode){
+                            console.log('找到了');
+                            finded = true;
+                            
+                        }else{
+                            // console.log('没找到');
+                            lastNode = lineData[i].soruce;
+                            inner();
+
+                        }
+                        break;
+                    }
+                }
+            }
+
+
+            inner(); 
+            return finded;
+        }
+
+        var idsObj = [];
+        targetArr.forEach(function(item){
+            idsObj.push({
+                id:item,
+                finded:isFindNode(lineData,firstId,item)
+            })
+        })
+ 
+
+    var tmp = [];
+    idsObj.forEach(function(item){
+        if(item.finded){
+            tmp.push(item.id);
+        }
+    })
+   return tmp;
+}
+
+function findLastNodeId(lineData,firstId){
+     //找到初始的节点id  
+    // var sourceArr = lineData.map(function(item){
+    //     return item.soruce
+    // }) 
+    var sourceArr = [firstId];
+
+    var targetArr = lineData.map(function(item){
+        return item.taget;
+    }) 
+
+    //过滤掉没有关联关系的
+    targetArr = filterTargetId(targetArr,firstId,lineData);
+    console.log('过滤完后的节点：')
+    console.log(targetArr);
+   
+
+    var targetNum = {};
+    for(var j = 0; j<targetArr.length;j++){
+        targetNum[targetArr[j]] = 0;
+    }
+
+     for(var i = 0; i<sourceArr.length; i++){
+        for(var j = 0; j<targetArr.length;j++){ 
+            if(sourceArr[i] == targetArr[j]){ 
+                targetNum[targetArr[j]] +=1;
+            }
+        }
+    } 
+
+
+    // console.log(targetNum);
+    var tmp = '';
+    for(var i in targetNum){
+        if(targetNum[i] == 0){
+            tmp = (i);
+        }
+    } 
+
+    return {
+        id:tmp
+    }
+  
+}
+
+function findFristNodeId(lineData){
+
+    //找到初始的节点id  
+    var sourceArr = lineData.map(function(item){
+        return item.soruce;
+    }) 
+    var targetArr = lineData.map(function(item){
+        return item.taget;
+    }) 
+ 
+
+    //目标里target没有的source的id 即是初始节点
+    var sourceNum = {};
+    for(var j = 0; j<sourceArr.length;j++){
+        sourceNum[sourceArr[j]] = 0;
+    }
+
+    for(var i = 0; i<targetArr.length; i++){
+        for(var j = 0; j<sourceArr.length;j++){ 
+            if(targetArr[i] == sourceArr[j]){ 
+                sourceNum[sourceArr[j]] +=1;
+            }
+        }
+    }  
+    var tmp = [];
+    for(var i in sourceNum){
+        if(sourceNum[i] == 0){
+            tmp.push(i);
+        }
+    } 
+ 
+    return {
+        id:tmp
+    }
+}
+
+function getLevNum(lineData,firstNode,lastNode){
+ 
+
+    var firstNode = firstNode.id;
+    var lastNode = lastNode.id;
+
+    //从最后的元素往上走 需要多少步找到第一个元素 那么结构就是多少层
+    var num = 1; 
+    var inner = function(){
+        for(var i = 0; i<lineData.length; i++){
+            if(lastNode == lineData[i].taget){
+                if(lineData[i].soruce == firstNode){
+                    // console.log('找到了');
+                }else{
+                    // console.log('没找到');
+                    lastNode = lineData[i].soruce;
+                    inner();
+                    num++;
+
+                }
+                break;
+            }
+        }
+    }
+
+
+    inner(); 
+
+    return num+1
+}
+
+
+//计算最能排多少列
+function getMaxColumn(lineData,levNum){
+    //按每层排一个 看最后一层剩多少元素 就是最多排多少列
+    //计算分组的结点数量
+    var sourceArr = lineData.map(function(item){
+        return item.soruce;
+    })
+    var targetArr = lineData.map(function(item){
+        return item.taget;
+    })
+    var tmp  = sourceArr.concat(targetArr);
+
+    //去重
+    function unique1(arr){
+        var hash=[];
+        for (var i = 0; i < arr.length; i++) {
+            if(hash.indexOf(arr[i])==-1){
+            hash.push(arr[i]);
+            }
+        }
+        return hash;
+    }
+
+    tmp = unique1(tmp); 
+
+    return tmp.length-(levNum-1);
+}
+
+//每一层各有哪些node 记录id
+function perLevContainerNode(lineData){
+
+
+    var findTarget = function(sourceIdArr){ 
+
+        var tmp = [];
+        for(var i = 0; i<sourceIdArr.length; i++){
+            for(var j=0; j<lineData.length; j++){
+                if(sourceIdArr[i] == lineData[j].soruce){ 
+                    tmp.push(lineData[j].taget);
+                }
+            }
+        } 
+
+        return tmp;
+    }
+
+    var firstNodeIds = findFristNodeId(lineData);
+    console.log('首节点：');
+    console.log(firstNodeIds.id);
+    var allLev = [];
+    for(var j =0; j<firstNodeIds.id.length; j++){
+        var perLastId = findLastNodeId(lineData,firstNodeIds.id[j]);
+        console.log('perLastId:');
+        console.log(perLastId.id);
+
+        var levNum = getLevNum(lineData,{id:firstNodeIds.id[j]},perLastId); 
+        console.log(levNum);
+        var lev = [];
+        for(var i = 0; i<levNum; i++){
+            if(i ==0){  //第一层
+                // var firstNode = findFristNodeId(lineData);
+                var firstNode ={id:firstNodeIds.id[j]}
+                lev = [[firstNode.id]];
+    
+            }else{
+                var sourceIdArr = lev[i-1]; //开始点
+                
+                lev[i] = findTarget(sourceIdArr);  //要据开始点找出它指向所有子节点
+            }
+        } 
+        console.log('分组关系'+j)
+        console.log(lev);
+        allLev.push(lev);
+        // return lev; 
+
+    } 
+
+    console.log(allLev);
+
+    //分层再并起来
+    var tmp = [];
+    allLev.forEach(function(item){
+        tmp = tmp.concat(item);
+    })
+
+    return tmp;
+    
+
+    // console.log(findFristNodeId(lineData));
+    // console.log(findLastNodeId(lineData));
+    return false;
+
+    var levNum = getLevNum(lineData,findFristNodeId(lineData),findLastNodeId(lineData));
+    var index = 0;
+    var lev = [];
+    for(var i = 0; i<levNum; i++){
+        if(i ==0){  //第一层
+            var firstNode = findFristNodeId(lineData);
+            lev = [[firstNode.id]];
+ 
+        }else{
+            var sourceIdArr = lev[i-1]; //开始点
+            
+            lev[i] = findTarget(sourceIdArr);  //要据开始点找出它指向所有子节点
+        }
+    } 
+
+
+    return lev;
+}
+
+
+// var num  = getLevNum(lineData,findFristNodeId(lineData),findLastNodeId(lineData));
+// console.log('一共有'+num+'层');
+// var column = getMaxColumn(lineData,num);
+// console.log('最多可以排'+column+'列')
+
+//要据连线情况 计算出每一层的对象布局情况
+var levObj = perLevContainerNode(lineData); 
+console.log('最后的分层结果');
+console.log(levObj);
+
+	</script>
+
+</body>
+</html>

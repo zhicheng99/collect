@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://zhicheng99.github.io/qcanvas/Qcanvas.js"></script>
+	<style>
+		html,body{
+    padding:0;
+    margin: 0;
+}
+canvas{
+  background:#eee; 
+
+}
+
+#textarea{
+    position: absolute;
+    z-index: 1;
+    padding:0;
+    margin:0;
+    outline: none;
+    display: none;
+    font-family:'Microsoft YaHei';
+    /* font-family: 'Arial'; */
+	word-break: break-all;
+    border:transparent;
+    overflow: hidden; 
+    background: rgba(0,0,0,0); 
+    resize:none;
+}
+	</style>
+</head>
+<body>
+
+	<canvas id="qcanvas"></canvas>
+
+<textarea name="" id="textarea" cols="10" rows="" warp="hard" onkeyup="change(this)"></textarea>
+
+</body>
+</html>
+
+	<script src="./example/js/textarea/init.js"></script>
+

@@ -1,0 +1,712 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>js 给元素添加、删除父标签 · 工作中的一些收集</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="lizhicheng">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-sidebar-style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-code-editor/editor.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="example/style/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="overflow.html" />
+    
+    
+    <link rel="prev" href="promise.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="css.html">
+            
+                <a href="css.html">
+            
+                    
+                    css
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="css3.html">
+            
+                <a href="css3.html">
+            
+                    
+                    图片倾斜效果css3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="perspective.html">
+            
+                <a href="perspective.html">
+            
+                    
+                    正反面翻转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="transation.html">
+            
+                <a href="transation.html">
+            
+                    
+                    css动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="flex1.html">
+            
+                <a href="flex1.html">
+            
+                    
+                    css弹性盒新版本样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="flex2.html">
+            
+                <a href="flex2.html">
+            
+                    
+                    css弹性盒老板本样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="jiantou.html">
+            
+                <a href="jiantou.html">
+            
+                    
+                    css箭头动画效果
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="typing.html">
+            
+                <a href="typing.html">
+            
+                    
+                    css打字机效果
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="typing.html">
+            
+                <a href="typing.html">
+            
+                    
+                    css打字机效果
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="css3_step.html">
+            
+                <a href="css3_step.html">
+            
+                    
+                    css3_step动画效果
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="js.html">
+            
+                <a href="js.html">
+            
+                    
+                    js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="sf.html">
+            
+                <a href="sf.html">
+            
+                    
+                    根据关系线生成布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="ball.html">
+            
+                <a href="ball.html">
+            
+                    
+                    原生JS实现球面展示特效
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="drag1.html">
+            
+                <a href="drag1.html">
+            
+                    
+                    拖动一
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="drag2.html">
+            
+                <a href="drag2.html">
+            
+                    
+                    拖动二
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="selectMenu.html">
+            
+                <a href="selectMenu.html">
+            
+                    
+                    文本框输入@触发选择菜单
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="textareaSelect.html">
+            
+                <a href="textareaSelect.html">
+            
+                    
+                    textarea选中文字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="nodelink.html">
+            
+                <a href="nodelink.html">
+            
+                    
+                    node连线算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="yd.html">
+            
+                <a href="yd.html">
+            
+                    
+                    仿有道云笔记网页剪报算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="textarea.html">
+            
+                <a href="textarea.html">
+            
+                    
+                    基于Qcanvas实现画布即时渲染textarea输入的文本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.10" data-path="promise.html">
+            
+                <a href="promise.html">
+            
+                    
+                    多个Promise实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.11" data-path="appendOrDelParendNode.html">
+            
+                <a href="appendOrDelParendNode.html">
+            
+                    
+                    js 给元素添加、删除父标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.12" data-path="overflow.html">
+            
+                <a href="overflow.html">
+            
+                    
+                    多行溢出省略号显示（ccs/js）实现！
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.13" data-path="diyPromise.html">
+            
+                <a href="diyPromise.html">
+            
+                    
+                    实现类Promise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.14" data-path="cutImg.html">
+            
+                <a href="cutImg.html">
+            
+                    
+                    在线裁图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.15" data-path="fileChunk.html">
+            
+                <a href="fileChunk.html">
+            
+                    
+                    文件分块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.16" data-path="carousel.html">
+            
+                <a href="carousel.html">
+            
+                    
+                    旋转木马效果
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="problem.html">
+            
+                <a href="problem.html">
+            
+                    
+                    疑难问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="video.html">
+            
+                <a href="video.html">
+            
+                    
+                    video标签不能自动播放问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >js 给元素添加、删除父标签</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <pre><code>&lt;img id=&quot;img&quot; src=&quot;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&quot; &gt;
+
+&lt;a href=&quot;&quot;&gt;
+    &lt;img id=&quot;img1&quot; src=&quot;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&quot; &gt;
+&lt;/a&gt;
+</code></pre><pre><code>
+window.onload = function(){
+
+
+    //&#x589E;&#x52A0;&#x7236;&#x6807;&#x7B7E;
+    var img = document.getElementById(&apos;img&apos;);
+
+    var parent = img.parentNode; 
+    if(parent.tagName.toLowerCase() != &apos;a&apos;){
+        //&#x589E;&#x52A0;&#x94FE;&#x63A5; 
+        var a = document.createElement(&apos;a&apos;);
+        a.href=&quot;http://www.baidu.com&quot;;
+        a.target = &apos;_blank&apos;;
+        img.parentNode.replaceChild(a,img);
+        a.appendChild(img);
+    }
+
+    //&#x5220;&#x9664;&#x7236;&#x6807;&#x7B7E;
+    var img1 = document.getElementById(&apos;img1&apos;);
+    img1.parentNode.parentNode.insertBefore(img1.cloneNode(true),img1.parentNode);
+    img1.parentNode.parentNode.removeChild(img1.parentNode);
+
+}
+</code></pre><footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2020-11-13 12:16:44
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="promise.html" class="navigation navigation-prev " aria-label="Previous page: 多个Promise实现">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="overflow.html" class="navigation navigation-next " aria-label="Next page: 多行溢出省略号显示（ccs/js）实现！">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"js 给元素添加、删除父标签","level":"2.1.11","depth":2,"next":{"title":"多行溢出省略号显示（ccs/js）实现！","level":"2.1.12","depth":2,"path":"overflow.md","ref":"overflow.md","articles":[]},"previous":{"title":"多个Promise实现","level":"2.1.10","depth":2,"path":"promise.md","ref":"promise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"appendOrDelParendNode.md","mtime":"2020-11-13T04:16:44.124Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-04T07:15:35.270Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sidebar-style/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.3/ace.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-code-editor/editor.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

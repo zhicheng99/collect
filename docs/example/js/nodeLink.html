@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+    
+//注：以下都是伪代码 目的是整理思路
+var A = {
+    width:1,
+    height:1
+}
+var B = {
+    width:1,
+    height:1
+}
+
+var A_center = {x:0,y:0};
+var B_center = {x:0,y:0};
+var A_rangePos = [0,1,2,3,4,5,6,7];
+var B_rangePos = [0,1,2,3,4,5,6,7];
+
+
+
+//计算线的起点的坐标位置（确定A节点周围的哪个点作为线的起点）
+var calcLineStartPos = function(){
+
+    var startPos = [0,0];
+    var endPos = [0,0];
+
+
+    //第一种情况（A在下 B在上）
+    // 0__1__2    
+    // |     |    
+    // 7  B  3   
+    // |     |    
+    // 6__5__4    
+    //    ↑
+    // 0__1__2    
+    // |     |    
+    // 7  A  3   
+    // |     |    
+    // 6__5__4    
+    if(A_center.y >= B_center.y){
+
+        //两点节点上下没有间距
+        if(A_rangePos[0][1] <= B_rangePos[6][1]){
+
+            //A点在B的右侧
+            if(A_rangePos[0][0] >= B_rangePos[2][0]){
+
+                startPos = A_rangePos[7];
+                endPos = B_rangePos[3];
+
+                
+            }else if(A_rangePos[2][0] <= B_rangePos[0][0]){
+                //A点在B的左侧
+                startPos = A_rangePos[3];
+                endPos = B_rangePos[7];
+
+            }else{
+
+                startPos = A_rangePos[1];
+                endPos = B_rangePos[1];
+            }
+
+        }else{ //上下没有叠加（上下有间距）
+
+             //A点在B的右下侧
+            if(A_rangePos[0][0] >= B_rangePos[2][0]){
+
+                startPos = A_rangePos[0];
+                endPos = B_rangePos[4];
+
+                
+            }else if(A_rangePos[2][0] <= B_rangePos[2][0]){
+                //A点在B的左下侧
+                startPos = A_rangePos[2];
+                endPos = B_rangePos[6];
+
+            }else{
+
+                startPos = A_rangePos[1];
+                endPos = B_rangePos[5];
+            }
+        }
+    }else{
+        //第二种情况 （A在上 B在下）
+        // 0__1__2    
+        // |     |    
+        // 7  A  3   
+        // |     |    
+        // 6__5__4    
+        //    ↓
+        // 0__1__2    
+        // |     |    
+        // 7  B  3   
+        // |     |    
+        // 6__5__4
+
+        //两点节点上下没有间距
+        if(B_rangePos[0][1]<=A_rangePos[6][1]){
+
+            //A在B的右侧
+            if(A_rangePos[0][0] >= B_rangePos[2][0]){
+                startPos = A_rangePos[7];
+                endPos = B_rangePos[3];
+
+            }else if(A_rangePos[2][0] <= B_rangePos[0][0]){
+                //A在B的左侧
+                startPos = A_rangePos[3];
+                endPos = B_rangePos[7];
+
+            }else{
+                startPos = A_rangePos[5];
+                endPos = B_rangePos[5];
+            }
+
+        }else{ //上下没有叠加（上下有间距）
+
+            //A在B的右上方
+            if(A_rangePos[0][0] >= B_rangePos[2][0]){
+                startPos = A_rangePos[6];
+                endPos = B_rangePos[2];
+            }else if(A_rangePos[2][0] <= B_rangePos[0][0]){
+                //A在B的左上方
+                startPos = A_rangePos[4];
+                endPos = B_rangePos[0];
+            }else{
+                startPos = A_rangePos[5];
+                endPos = B_rangePos[1];
+            }
+
+
+
+        }
+
+
+
+
+    }
+
+
+    return startPos;
+
+}
+
+</script>
+
+</body>
+</html>

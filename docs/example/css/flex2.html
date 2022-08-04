@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.box {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box
+}
+
+.box-orient-vertical {
+    /*! autoprefixer: off */
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+}
+
+.box-flex-1 {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1
+}
+
+.box-flex-2 {
+    -webkit-box-flex: 2;
+    -moz-box-flex: 2
+}
+
+.box-align-start {
+    -webkit-box-pack: start;
+    -webkit-box-align: start;
+    -moz-box-pack: start;
+    -moz-box-align: start
+}
+
+.box-align-center {
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -moz-box-align: center
+}
+
+.box-align-end {
+    -webkit-box-pack: end;
+    -webkit-box-align: end;
+    -moz-box-pack: end;
+    -moz-box-align: end
+}
+
+.a{
+    width: 200px;
+    height: 200px;
+    background: red;
+}
+
+.b{
+    width: 100px;
+    height: 100px;
+    background: blue
+}
+	</style>
+</head>
+<body>
+<div class="a box  box-align-center">
+    <div class="b"></div>
+</div>
+</body>
+</html>

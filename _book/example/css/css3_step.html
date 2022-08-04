@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Typewriter effect</title>
+  </head>
+  <style>
+    body{
+      background: #000;
+    }
+    .dotting {
+        display: inline-block; min-width: 2px; min-height: 2px;
+        margin-right: 8px;
+        box-shadow: 2px 0, 6px 0, 10px 0;
+        animation: dot 4s infinite step-start both;
+    }
+    @keyframes dot {
+        25% { box-shadow: none; }          /* 0个点 */
+        50% { box-shadow: 2px 0; }         /* 1个点 */
+        75% { box-shadow: 2px 0, 6px 0; }  /* 2个点 */ 
+    }
+
+    @-moz-keyframes rotate{
+                  0%{
+                    -moz-transform:rotate(0deg);
+                   }
+                   100%{
+                     -moz-transform:rotate(360deg);
+                   }
+       }
+      @-webkit-keyframes rotate{
+      0%{
+        -webkit-transform:rotate(0deg);
+       }
+       100%{
+         -webkit-transform:rotate(360deg);
+       }
+      }
+      @keyframes rotate{
+      0%{
+        transform:rotate(0deg);
+       }
+       100%{
+         transform:rotate(360deg);
+       }
+      }
+      .loading{
+            width: 40px;  
+          -moz-animation:rotate 1s steps(12,end)   infinite;
+          -webkit-animation:rotate 1s steps(12,end)   infinite;
+          animation:rotate 1s steps(12,end)   infinite;
+      }
+ 
+  </style>
+<body>
+  <button>订单提交中<span class="dotting"></span></button>
+
+  <img src="asset/loading.png" alt="" class="loading">
+</body>
+</html>

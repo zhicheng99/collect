@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	 .Previous {
+  position: absolute;
+  left:10px;
+  top:0;
+  margin-top:-21px;
+  width: 50px !important;
+    height: 90px !important;
+    cursor: pointer;
+    pointer-events: none;
+}
+ 
+.Previous .s1 {
+
+  position: absolute;
+  top:0;
+  left:0px;
+}
+.Previous .s2 {
+
+  position: absolute;
+  top:0;
+  left:10px;
+} 
+.s2 {
+ -webkit-animation:move 2s  ease-in-out infinite;
+    animation:move 2s ease-in-out infinite;
+}
+.s1 {
+ -webkit-animation:move 2s 0.5s ease-in-out infinite;
+    animation:move 2s 0.5s ease-in-out infinite;
+}
+@keyframes move{
+0%{
+    opacity: 0
+}
+50%{
+        opacity: 1
+}
+100%{
+    opacity: 0
+}
+}
+@-webkit-keyframes move{
+0%{
+    opacity: 0
+}
+50%{
+        opacity: 1
+}
+100%{
+    opacity: 0
+}
+}
+
+	</style>
+</head>
+<body> 
+
+  <div  class="Previous">
+    <img  src="assets/left.png" class="s1">
+    <img  src="assets/left.png" class="s2">
+  </div>
+ 
+	
+</body>
+</html>
