@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    .caseitem_hover {
+        width: 278px;
+        height: 398px;
+        position: relative;
+        margin: 0 auto;
+        -webkit-transition: transform 0.2s;
+        -moz-transition: transform 0.2s;
+        -ms-transition: transform 0.2s;
+        -o-transition: transform 0.2s;
+        /* cursor: pointer; */
+    }
+
+    .caseItem_back {
+        background-color: #f5f5f5;
+        width: 276px;
+        height: 396px;
+        border: solid #E6E6E6 1px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -139px;
+        perspective: 1500;
+        -webkit-perspective: 1500;
+        transform: rotateY(-180deg);
+        -webkit-transform: rotateY(-180deg);
+        -webkit-transition: transform 1s, box-shadow 0.8s;
+        -moz-transition: transform 1s, box-shadow 0.8s;
+        -ms-transition: transform 1s, box-shadow 0.8s;
+        -o-transition: transform 1s, box-shadow 0.8s;
+    }
+
+    .caseItem_front {
+        background-color: #cccccc;
+        width: 276px;
+        height: 396px;
+        border: solid #E6E6E6 1px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -139px;
+        perspective: 1500;
+        /* pointer-events: none; */
+        cursor: pointer;
+        -webkit-perspective: 1500;
+        -webkit-transition: transform 1s, box-shadow 0.8s, opacity 1s;
+        -moz-transition: transform 1s, box-shadow 0.8s, opacity 1s;
+        -ms-transition: transform 1s, box-shadow 0.8s, opacity 1s;
+        -o-transition: transform 1s, box-shadow 0.8s, opacity 1s;
+    }
+
+    .caseitem_hover:hover .caseItem_front {
+        pointer-events: none;
+        box-shadow: #e6e6e6 2px 2px 10px;
+
+
+
+        transform: rotateY(-180deg);
+        -webkit-transform: rotateY(-180deg);
+        opacity: 0;
+
+    }
+
+    .caseitem_hover:hover .caseItem_back {
+
+        box-shadow: #e6e6e6 2px 2px 10px;
+
+
+
+        transform: rotateY(-360deg);
+        -webkit-transform: rotateY(-360deg);
+
+
+    }
+    </style>
+
+<body>
+    <div class="caseitem_hover">
+        <div class="caseItem_back">
+            反面
+        </div>
+        <div class="caseItem_front">
+            正面
+        </div>
+    </div>
+</body>
+</head>
+
+</html>
