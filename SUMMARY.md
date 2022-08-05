@@ -35,6 +35,7 @@
   * [文件分块](fileChunk.md)
   * [旋转木马效果](carousel.md)
   * [js对css3动画事件监听](animationend_transitionend.md)
+  * [js打印页面部分同容](print.md)
 
 
 

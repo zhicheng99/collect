@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>textarea选中文字 · 工作中的一些收集</title>
+        <title>js打印页面部分同容 · 工作中的一些收集</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="nodeLink.html" />
+    <link rel="next" href="problem.html" />
     
     
-    <link rel="prev" href="selectMenu.html" />
+    <link rel="prev" href="animationend_transitionend.html" />
     
 
     </head>
@@ -340,7 +340,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.6" data-path="textareaSelect.html">
+        <li class="chapter " data-level="2.1.6" data-path="textareaSelect.html">
             
                 <a href="textareaSelect.html">
             
@@ -496,7 +496,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.18" data-path="print.html">
+        <li class="chapter active" data-level="2.1.18" data-path="print.html">
             
                 <a href="print.html">
             
@@ -583,7 +583,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >textarea选中文字</a>
+        <a href="." >js打印页面部分同容</a>
     </h1>
 </div>
 
@@ -598,167 +598,94 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>
-    <div class="zc-editor" data-id="15" data-single-tab="false">
-      <div class="zc-top blue">
-        <div class="zc-actions">
-          <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(15);">
-            <div>Export</div>
-          </div>
-        </div>
-        
-        <div class="zc-commands">
-          <div id="html-btn15" class="zc-btn" onclick="toggle(&apos;html&apos;, 15)">HTML</div>
-          <!--<div id="js-btn15" class="zc-btn" onclick="toggle('js', 15)">JavaScript</div>-->
-          <!--<div id="css-btn15" class="zc-btn" onclick="toggle('css', 15)">CSS</div>-->
-          <div id="result-btn15" class="zc-btn" onclick="toggle(&apos;result&apos;, 15)">Result</div>
-        </div>
-      </div>
-      <div class="zc-content">
-        <div id="html15" class="zc-cont" style="display:none; ">
-          <div class="editor" id="codeeditor15" data-settings="{&quot;readOnly&quot;:&quot;true&quot;,&quot;mode&quot;:&quot;html&quot;,&quot;theme&quot;:&quot;github&quot;,&quot;maxLines&quot;:&quot;500&quot;}">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;title&gt;&lt;/title&gt;
-	&lt;style type=&quot;text/css&quot;&gt;
-		 .tooltip {
-                width:219px;
-                height:33px;
-            }
-            .tooltip a {
-                width:219px;
-                height:33px;
-                display:block;
-            }
-	&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
+                                <pre><code>let iframe = document.querySelector(&quot;iframe&quot;);
+                    iframe.contentDocument.open();
+                    iframe.contentDocument.write(`
+                        &lt;style media=&quot;print&quot;&gt;
+                        body{
+                            padding:0;
+                            margin:0;
+                        }
+                            // .printTable{
+                            //     width: 100%;
+                            //     color: #000;
+                            //     background: #eee;
+                            //     border-spacing: 1px;
+                            //     border-collapse: inherit;
+                            //     line-height: 32px;
 
-        &lt;!--&#x5728;&#x6587;&#x7AE0;&#x5185;&#x6DFB;&#x52A0; selected-article ID--&gt;
-        &lt;div &gt;
-&lt;textarea cols=&quot;60&quot; rows=&quot;8&quot; id=&quot;selectedArticle&quot;&gt;
-asp&#x3001;php&#x3001;asp.net&#x3001;javascript&#x3001;jquery&#x3001;vbscript&#x3001;dos
-&lt;/textarea&gt;
-        &lt;/div&gt;
-        asp&#x3001;php&#x3001;asp.net&#x3001;javascript&#x3001;jquery&#x3001;vbscript&#x3001;dos
-    
-&lt;/body&gt;
-&lt;/html&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-	// &#x83B7;&#x53D6;&#x9009;&#x4E2D;&#x7684;&#x6587;&#x672C;
- 
-            function getSelectText() {
-                let txt = &quot;&quot;;
-                if(document.selection) {
-                    txt = document.selection.createRange().text;
-                  console.log(&apos;txt1:&apos;+txt)
-                } else {
-                    txt = document.getSelection();
-                    //txt = window.getSelection();
-                    console.log(&apos;txt2:&apos;+txt)
+                      //         }
+                      //         .printTable tr td{
+                      //             background: #fff;
+                      //             padding-left:5px;
+                      //             line-height: 30px;
+                      //         }
 
 
-                }
-                return $.trim(txt.toString());
-            }
-            
-            $(function() {
-                //&#x5C06;&#x8BE5;id&#x4E0B;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x9F20;&#x6807;&#x9009;&#x4E2D;&#x677E;&#x5F00;&#x540E;&#x5F39;&#x7A97;
-                $(&quot;#selectedArticle&quot;).mouseup(function(e) {
-                  console.log(&apos;ddd&apos;)
-                    var txt = getSelectText();
-                    txt = $.trim(txt);
-                    // getPosition(e);
-                }).mousedown(function() {
-                    $(&quot;#tooltip&quot;).remove();
-                });
-            });
-&lt;/script&gt;</div>
-        </div><div id="result15" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
-        <div id="js15" class="zc-cont" style="display:none">
-          <pre id="js-code15" class="prettyprint linenums"></pre>
-        </div>
-  
-        <div id="css15" class="zc-cont" style="display:none">
-          <pre id="css-code15" class="prettyprint linenums"></pre>
-        </div>
-  
-      </div>
-  
-      <input type="hidden" id="init-html15" value="&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;title&gt;&lt;/title&gt;
-	&lt;style type=&quot;text/css&quot;&gt;
-		 .tooltip {
-                width:219px;
-                height:33px;
-            }
-            .tooltip a {
-                width:219px;
-                height:33px;
-                display:block;
-            }
-	&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
+                              .printTable{
+                                // font-size:12px;
+                                width: 100%;
+                                color: #000;
+                                border-spacing: 1px;
+                                border-collapse: inherit;
+                                line-height: 32px;
+                                border-top:solid #000 1px;
+                                border-left:solid #000 1px;
+                              }
+                              .printTable tr td{
+                                border-bottom:solid #000 1px;
+                                border-right:solid #000 1px;
+                                  background: #fff;
+                                  padding-left:5px;
 
-        &lt;!--&#x5728;&#x6587;&#x7AE0;&#x5185;&#x6DFB;&#x52A0; selected-article ID--&gt;
-        &lt;div &gt;
-&lt;textarea cols=&quot;60&quot; rows=&quot;8&quot; id=&quot;selectedArticle&quot;&gt;
-asp&#x3001;php&#x3001;asp.net&#x3001;javascript&#x3001;jquery&#x3001;vbscript&#x3001;dos
-&lt;/textarea&gt;
-        &lt;/div&gt;
-        asp&#x3001;php&#x3001;asp.net&#x3001;javascript&#x3001;jquery&#x3001;vbscript&#x3001;dos
-    
-&lt;/body&gt;
-&lt;/html&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-	// &#x83B7;&#x53D6;&#x9009;&#x4E2D;&#x7684;&#x6587;&#x672C;
- 
-            function getSelectText() {
-                let txt = &quot;&quot;;
-                if(document.selection) {
-                    txt = document.selection.createRange().text;
-                  console.log(&apos;txt1:&apos;+txt)
-                } else {
-                    txt = document.getSelection();
-                    //txt = window.getSelection();
-                    console.log(&apos;txt2:&apos;+txt)
+                              }
 
 
-                }
-                return $.trim(txt.toString());
-            }
-            
-            $(function() {
-                //&#x5C06;&#x8BE5;id&#x4E0B;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x9F20;&#x6807;&#x9009;&#x4E2D;&#x677E;&#x5F00;&#x540E;&#x5F39;&#x7A97;
-                $(&quot;#selectedArticle&quot;).mouseup(function(e) {
-                  console.log(&apos;ddd&apos;)
-                    var txt = getSelectText();
-                    txt = $.trim(txt);
-                    // getPosition(e);
-                }).mousedown(function() {
-                    $(&quot;#tooltip&quot;).remove();
-                });
-            });
-&lt;/script&gt;">
-      <input type="hidden" id="init-css15" value="">
-      <input type="hidden" id="init-js15" value="">
-      <input type="hidden" id="init-active15" value="html">
-  
-      <div style="display:none;">
-        <form method="post" id="codepen-form15" action="//codepen.io/pen/define" target="check">
-          <input id="codepen-data15" type="hidden" name="data">
-          <input type="hidden" name="wrap" value="l">
-        </form>
-      </div>
-    </div>
-  </p>
-<footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-09-29 14:54:07
+                              .printTable_title{
+                                  font-size:30px;
+                                  padding:10px 0;
+                              }
+                              .printTable tr.yellow_bg td{
+                                   background-color: #ffff00 !important;
+                                -webkit-print-color-adjust: exact;
+                              }
+                              .lineInput{
+                                  display: inline-block;
+                                  width: 150px;
+                                  border-bottom: solid #000 1px;
+                                  margin-right: 10px
+                              }
+                              .tel{
+                                  font-size: 14px;
+                                  text-align: right;
+                                  padding-right: 10px;
+                              }
+                        &lt;/style&gt;
+                        &lt;div id=&quot;preview&quot;&gt;&lt;/div&gt;
+                        &lt;script&gt;
+                        window.addEventListener(&quot;message&quot;, (e) =&gt; {
+                          if(!e.data) {
+                            return;
+                          }
+
+
+                            document.getElementById(&apos;preview&apos;).innerHTML = e.data;
+
+                           setTimeout(()=&gt;{
+                               window.print();
+                           },200)
+
+                        }, false);
+
+                        // window.parent.postMessage(&apos;ready&apos;, &apos;*&apos;);
+
+                        &lt;\/script&gt;`);
+                    iframe.contentDocument.close();
+                    setTimeout(() =&gt; { 
+                        iframe.contentWindow.postMessage(document.getElementById(&apos;preview&apos;).innerHTML, &quot;*&quot;);
+                    }, 200);
+</code></pre><footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-08-05 14:42:21
 </span></footer>
                                 
                                 </section>
@@ -786,12 +713,12 @@ asp&#x3001;php&#x3001;asp.net&#x3001;javascript&#x3001;jquery&#x3001;vbscript&#x
 
             
                 
-                <a href="selectMenu.html" class="navigation navigation-prev " aria-label="Previous page: 文本框输入@触发选择菜单">
+                <a href="animationend_transitionend.html" class="navigation navigation-prev " aria-label="Previous page: js对css3动画事件监听">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="nodeLink.html" class="navigation navigation-next " aria-label="Next page: node连线算法">
+                <a href="problem.html" class="navigation navigation-next " aria-label="Next page: 疑难问题">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -802,7 +729,7 @@ asp&#x3001;php&#x3001;asp.net&#x3001;javascript&#x3001;jquery&#x3001;vbscript&#x
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"textarea选中文字","level":"2.1.6","depth":2,"next":{"title":"node连线算法","level":"2.1.7","depth":2,"path":"nodeLink.md","ref":"nodeLink.md","articles":[]},"previous":{"title":"文本框输入@触发选择菜单","level":"2.1.5","depth":2,"path":"selectMenu.md","ref":"selectMenu.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"textareaSelect.md","mtime":"2020-09-29T06:54:07.981Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-05T06:42:57.736Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"js打印页面部分同容","level":"2.1.18","depth":2,"next":{"title":"疑难问题","level":"3.1","depth":1,"path":"problem.md","ref":"problem.md","articles":[{"title":"video标签不能自动播放问题","level":"3.1.1","depth":2,"path":"video.md","ref":"video.md","articles":[]}]},"previous":{"title":"js对css3动画事件监听","level":"2.1.17","depth":2,"path":"animationend_transitionend.md","ref":"animationend_transitionend.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"print.md","mtime":"2022-08-05T06:42:21.714Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-05T06:42:57.736Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
