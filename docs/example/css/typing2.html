@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Typewriter effect</title>
+  </head>
+  <style>
+   html,body{
+      padding: 0;
+      margin:0;
+      width: 100%;
+      height: 100%;
+    }
+    video{
+      width: 100%;
+      height: 100%; 
+    }
+    .btn{
+      position: absolute;
+      left:0;
+      top:0;
+    }
+    i{
+      font-style: normal;
+      display: inline-block;
+      width: 0;
+      overflow:hidden;
+    }
+    #text{
+
+      font-size:12px;
+    }
+    #text span{
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .show{
+      width: auto;
+    }
+  </style>
+  <script type="text/javascript"  src="../js/carousel_js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="initTxt.js"></script>
+
+<script>
+  
+  $(function(){
+
+    initTxt.init('text');
+    initTxt.start('text'); 
+
+  })
+ 
+
+
+</script>
+<body> 
+  <div id="text"><span>比亚迪</span>在懂车帝共有<span class="aa">12345efefefefe6</span>efefefefeffeffeeffee<span>223232</span>fwfefefsfes</div>
+
+</body>
+</html>
