@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>文件分块 · 工作中的一些收集</title>
+        <title>解决audio自动播放问题 · 工作中的一些收集</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="carousel.html" />
     
-    
-    <link rel="prev" href="cutImg.html" />
+    <link rel="prev" href="video.html" />
     
 
     </head>
@@ -457,7 +455,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.15" data-path="fileChunk.html">
+        <li class="chapter " data-level="2.1.15" data-path="fileChunk.html">
             
                 <a href="fileChunk.html">
             
@@ -548,7 +546,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2" data-path="sound.html">
+        <li class="chapter active" data-level="3.1.2" data-path="sound.html">
             
                 <a href="sound.html">
             
@@ -596,7 +594,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >文件分块</a>
+        <a href="." >解决audio自动播放问题</a>
     </h1>
 </div>
 
@@ -611,223 +609,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>
-    <div class="zc-editor" data-id="21" data-single-tab="false">
-      <div class="zc-top blue">
-        <div class="zc-actions">
-          <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(21);">
-            <div>Export</div>
-          </div>
-        </div>
-        
-        <div class="zc-commands">
-          <div id="html-btn21" class="zc-btn" onclick="toggle(&apos;html&apos;, 21)">HTML</div>
-          <!--<div id="js-btn21" class="zc-btn" onclick="toggle('js', 21)">JavaScript</div>-->
-          <!--<div id="css-btn21" class="zc-btn" onclick="toggle('css', 21)">CSS</div>-->
-          <div id="result-btn21" class="zc-btn" onclick="toggle(&apos;result&apos;, 21)">Result</div>
-        </div>
-      </div>
-      <div class="zc-content">
-        <div id="html21" class="zc-cont" style="display:none; ">
-          <div class="editor" id="codeeditor21" data-settings="{&quot;readOnly&quot;:&quot;true&quot;,&quot;mode&quot;:&quot;html&quot;,&quot;theme&quot;:&quot;github&quot;,&quot;maxLines&quot;:&quot;500&quot;}">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;meta charset=&quot;utf-8&quot;&gt;
-	&lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;input type=&quot;file&quot; id=&quot;file&quot;&gt;
-	&lt;script type=&quot;text/javascript&quot;&gt;
-		var fileChunk = function(options = {file:&apos;&apos;}){
+                                <pre><code>&lt;!-- PixiJS must be imported before @pixi/sound --&gt;
+&lt;script src=&quot;https://unpkg.com/pixi.js/dist/browser/pixi.min.js&quot;&gt;&lt;/script&gt;
 
+&lt;!-- found here, if not using CDN &quot;./node_modules/@pixi/sound/dist/pixi-sound.js&quot; --&gt;
+&lt;script src=&quot;https://unpkg.com/@pixi/sound/dist/pixi-sound.js&quot;&gt;&lt;/script&gt;
 
-		var setting ={
-			...options
-		}
-		var start = 0,
-		end = 0,
-		chunkSize = 1024000,
-		currentChunk = 0,
-		tmpDataList = [];
-
-		var taskId =(new Date()).getTime()+&apos;&apos;+parseInt(Math.random()*10000000);
-		var chunks = Math.ceil(setting.file.size / chunkSize);
-		console.log(taskId,chunks);
-
-		var  blobSlice =
-	        window.File.prototype.slice ||
-	        window.File.prototype.mozSlice ||
-	        window.File.prototype.webkitSlice;
-	 
-
-
-	    var inner = function(){
-	    	(start = currentChunk * chunkSize),
-		                (end =
-		                    start + chunkSize &gt;= setting.file.size
-		                        ? setting.file.size
-		                        : start + chunkSize);
-
-		            let pieceFile = blobSlice.call(
-		                setting.file,
-		                start,
-		                end
-		            );
-
-		            console.log(pieceFile);
-
-
-		            pieceFile.name = setting.file.name;
-		            let tmpObj = {
-		            	fileName:setting.file.name,
-		            	fileType:setting.file.type,
-		                file: pieceFile,
-		                // currentSize: end - start,
-		                // currentNum: currentChunk,
-		                taskId:taskId,
-		                chunk:tmpDataList.length,
-		                totalChunk:chunks,
-		                totalSize:setting.file.size
-				    };
-
-				    tmpDataList.push(tmpObj);
-		            currentChunk++;
-
-			if (currentChunk &lt; chunks) {
-			   inner();
-			}	    
-	    }
-			   inner();
-
-
-
-	    return tmpDataList;
-}
-		
-	window.onload = function(){
-		var dom = document.getElementById(&apos;file&apos;);
-		dom.onchange = function(e){
-
-			var chunks = fileChunk({file:e.target.files[0]});
-			console.log(chunks);
-		}
-
-	}
-	&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</div>
-        </div><div id="result21" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
-        <div id="js21" class="zc-cont" style="display:none">
-          <pre id="js-code21" class="prettyprint linenums"></pre>
-        </div>
-  
-        <div id="css21" class="zc-cont" style="display:none">
-          <pre id="css-code21" class="prettyprint linenums"></pre>
-        </div>
-  
-      </div>
-  
-      <input type="hidden" id="init-html21" value="&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;meta charset=&quot;utf-8&quot;&gt;
-	&lt;title&gt;&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;input type=&quot;file&quot; id=&quot;file&quot;&gt;
-	&lt;script type=&quot;text/javascript&quot;&gt;
-		var fileChunk = function(options = {file:&apos;&apos;}){
-
-
-		var setting ={
-			...options
-		}
-		var start = 0,
-		end = 0,
-		chunkSize = 1024000,
-		currentChunk = 0,
-		tmpDataList = [];
-
-		var taskId =(new Date()).getTime()+&apos;&apos;+parseInt(Math.random()*10000000);
-		var chunks = Math.ceil(setting.file.size / chunkSize);
-		console.log(taskId,chunks);
-
-		var  blobSlice =
-	        window.File.prototype.slice ||
-	        window.File.prototype.mozSlice ||
-	        window.File.prototype.webkitSlice;
-	 
-
-
-	    var inner = function(){
-	    	(start = currentChunk * chunkSize),
-		                (end =
-		                    start + chunkSize &gt;= setting.file.size
-		                        ? setting.file.size
-		                        : start + chunkSize);
-
-		            let pieceFile = blobSlice.call(
-		                setting.file,
-		                start,
-		                end
-		            );
-
-		            console.log(pieceFile);
-
-
-		            pieceFile.name = setting.file.name;
-		            let tmpObj = {
-		            	fileName:setting.file.name,
-		            	fileType:setting.file.type,
-		                file: pieceFile,
-		                // currentSize: end - start,
-		                // currentNum: currentChunk,
-		                taskId:taskId,
-		                chunk:tmpDataList.length,
-		                totalChunk:chunks,
-		                totalSize:setting.file.size
-				    };
-
-				    tmpDataList.push(tmpObj);
-		            currentChunk++;
-
-			if (currentChunk &lt; chunks) {
-			   inner();
-			}	    
-	    }
-			   inner();
-
-
-
-	    return tmpDataList;
-}
-		
-	window.onload = function(){
-		var dom = document.getElementById(&apos;file&apos;);
-		dom.onchange = function(e){
-
-			var chunks = fileChunk({file:e.target.files[0]});
-			console.log(chunks);
-		}
-
-	}
-	&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;">
-      <input type="hidden" id="init-css21" value="">
-      <input type="hidden" id="init-js21" value="">
-      <input type="hidden" id="init-active21" value="html">
-  
-      <div style="display:none;">
-        <form method="post" id="codepen-form21" action="//codepen.io/pen/define" target="check">
-          <input id="codepen-data21" type="hidden" name="data">
-          <input type="hidden" name="wrap" value="l">
-        </form>
-      </div>
-    </div>
-  </p>
-<footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2021-12-28 15:23:33
+&lt;script&gt;
+    PIXI.sound.add(&apos;my-sound&apos;, &apos;path/to/file.mp3&apos;);
+    PIXI.sound.play(&apos;my-sound&apos;);
+&lt;/script&gt;
+</code></pre><footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-08-16 12:45:04
 </span></footer>
                                 
                                 </section>
@@ -855,14 +648,10 @@
 
             
                 
-                <a href="cutImg.html" class="navigation navigation-prev " aria-label="Previous page: 在线裁图">
+                <a href="video.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: video标签不能自动播放问题">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="carousel.html" class="navigation navigation-next " aria-label="Next page: 旋转木马效果">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -871,7 +660,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"文件分块","level":"2.1.15","depth":2,"next":{"title":"旋转木马效果","level":"2.1.16","depth":2,"path":"carousel.md","ref":"carousel.md","articles":[]},"previous":{"title":"在线裁图","level":"2.1.14","depth":2,"path":"cutImg.md","ref":"cutImg.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"fileChunk.md","mtime":"2021-12-28T07:23:33.387Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-16T04:46:50.477Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"解决audio自动播放问题","level":"3.1.2","depth":2,"previous":{"title":"video标签不能自动播放问题","level":"3.1.1","depth":2,"path":"video.md","ref":"video.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"sound.md","mtime":"2022-08-16T04:45:04.614Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-16T04:46:33.773Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

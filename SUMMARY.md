@@ -40,7 +40,11 @@
 
 
 
+
+
   
 * [疑难问题](problem.md)
   * [video标签不能自动播放问题](video.md)
+  * [解决audio自动播放问题](sound.md)
+
 
