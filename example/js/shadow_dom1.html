@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <style>
+        #app1{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app1">dfsfs</div>
+    <div id="app"> 
+
+    </div>
+	<script type="text/javascript">
+		window.onload = function(){
+            var header = document.getElementById('app');
+
+            var shadowRoot = header.attachShadow({mode: 'open'});
+            var paragraphElement = document.createElement('div');
+            paragraphElement.id="app1"
+
+            var style = document.createElement('style');
+            style.innerText = ('#app1{color:red}');
+
+
+            paragraphElement.innerText = 'Shadow DOM';
+            shadowRoot.appendChild(style);
+            shadowRoot.appendChild(paragraphElement); 
+        }
+
+	</script>
+
+</body>
+</html>
