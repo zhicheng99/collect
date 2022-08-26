@@ -10,12 +10,11 @@
 </head>
 <body>
 
-    <div id="app1">dfsfs</div>
+    <div id="app1">我是外部元素内容</div>
     <div id="app"> 
 
     </div>
 	<script type="text/javascript">
-		// window.onload = function(){
             var header = document.getElementById('app');
 
             var shadowRoot = header.attachShadow({mode: 'open'});
@@ -29,7 +28,6 @@
             paragraphElement.innerText = 'Shadow DOM';
             shadowRoot.appendChild(style);
             shadowRoot.appendChild(paragraphElement); 
-        // }
 
 	</script>
 
