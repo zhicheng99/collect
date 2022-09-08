@@ -38,6 +38,8 @@
   * [js打印页面部分内容](print.md)
   * [创建shadow dom元素](shadow_dom.md)
   * [自动触发click事件](trigger_click.md)
+  * [echarts3d饼图](echarts_pie_3d.md)
+
 
 
 

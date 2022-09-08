@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>文本框输入@触发选择菜单 · 工作中的一些收集</title>
+        <title>自动触发click事件 · 工作中的一些收集</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="textareaSelect.html" />
+    <link rel="next" href="problem.html" />
     
     
-    <link rel="prev" href="drag2.html" />
+    <link rel="prev" href="shadow_dom.html" />
     
 
     </head>
@@ -327,7 +327,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.5" data-path="selectMenu.html">
+        <li class="chapter " data-level="2.1.5" data-path="selectMenu.html">
             
                 <a href="selectMenu.html">
             
@@ -522,25 +522,12 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.20" data-path="trigger_click.html">
+        <li class="chapter active" data-level="2.1.20" data-path="trigger_click.html">
             
                 <a href="trigger_click.html">
             
                     
                     自动触发click事件
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.21" data-path="echarts_pie_3d.html">
-            
-                <a href="echarts_pie_3d.html">
-            
-                    
-                    echarts3d饼图
             
                 </a>
             
@@ -635,7 +622,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >文本框输入@触发选择菜单</a>
+        <a href="." >自动触发click事件</a>
     </h1>
 </div>
 
@@ -650,233 +637,22 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>
-    <div class="zc-editor" data-id="15" data-single-tab="false">
-      <div class="zc-top blue">
-        <div class="zc-actions">
-          <div class="zc-btn" data-text="JSFiddle" onclick="exportToCodepen(15);">
-            <div>Export</div>
-          </div>
-        </div>
-        
-        <div class="zc-commands">
-          <div id="html-btn15" class="zc-btn" onclick="toggle(&apos;html&apos;, 15)">HTML</div>
-          <!--<div id="js-btn15" class="zc-btn" onclick="toggle('js', 15)">JavaScript</div>-->
-          <!--<div id="css-btn15" class="zc-btn" onclick="toggle('css', 15)">CSS</div>-->
-          <div id="result-btn15" class="zc-btn" onclick="toggle(&apos;result&apos;, 15)">Result</div>
-        </div>
-      </div>
-      <div class="zc-content">
-        <div id="html15" class="zc-cont" style="display:none; ">
-          <div class="editor" id="codeeditor15" data-settings="{&quot;readOnly&quot;:&quot;true&quot;,&quot;mode&quot;:&quot;html&quot;,&quot;theme&quot;:&quot;github&quot;,&quot;maxLines&quot;:&quot;500&quot;}">&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;style&gt;
-        *{padding:0;margin:0;}
-        .box{position:relatuve;}
-        #ipt{
-            font-size:16px;
-            padding-left:5px;
-            line-height:30px;
-        }
-        #list{
-            position:absolute;
-            list-style:none;
-            width:150px;
-            display:none;
-        }
-        #list li{height:25px;line-height:25px;}
-        #list li:hover{background:#efefef;cursor:pointer;}
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&apos;box&apos;&gt;
-        &lt;textarea rows=&quot;3&quot; cols=&quot;20&quot; id=&apos;ipt&apos;&gt;&lt;/textarea&gt;
-        &lt;ul id=&apos;list&apos;&gt;
-            &lt;li&gt;qq.com&lt;/li&gt;&lt;li&gt;sina.com&lt;/li&gt;&lt;li&gt;163.com&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-	window.onload = function(){
-  
-  var ipt = document.getElementById(&apos;ipt&apos;);   
-        var list = document.getElementById(&apos;list&apos;);
+                                <pre><code>&lt;button id=&quot;test&quot; type=&quot;button&quot;  &gt;&#x6D4B;&#x8BD5;&lt;/button&gt;
 
-        ipt.oninput = function(e){
-            //console.log(e)
-            //&#x83B7;&#x53D6;&#x5149;&#x6807;&#x4F4D;&#x7F6E;
-            var position = getPosition(ipt);
-            ipt.value = ipt.value || &apos;&apos;;
-            //&#x5982;&#x679C;&#x5149;&#x6807;&#x540E;&#x9762;&#x662F;&#x7A7A;&#x683C;&#x6216;&#x6CA1;&#x6709;&#x5185;&#x5BB9;,&#x4E14;&#x5149;&#x6807;&#x524D;&#x9762;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x662F;@
-            var s = ipt.value.charAt(position)
-            if((s == &quot;&quot; || s == &quot; &quot;) &amp;&amp; ipt.value.charAt(position-1) == &quot;@&quot;){
-                var iStyle = window.getComputedStyle(ipt),
-                    fz = parseFloat(iStyle.fontSize),//&#x5B57;&#x4F53;&#x5927;&#x5C0F;
-                    wd = parseFloat(iStyle.width),//&#x6587;&#x672C;&#x57DF;&#x5BBD;&#x5EA6;
-                    lh = parseFloat(iStyle.lineHeight),//&#x884C;&#x9AD8;
-                    pd = parseFloat(iStyle.paddingLeft),//&#x5DE6;&#x5185;&#x8FB9;&#x8DDD;
-
-                    newStr = ipt.value.substr(0,position+1),
-                    //&#x6709;&#x6362;&#x884C;&#x7B26;&#x6839;&#x636E;&#x6362;&#x884C;&#x7B26;&#x62C6;&#x5206;
-                    valArr = newStr.indexOf(&quot;\n&quot;)!==-1 ? newStr.split(&quot;\n&quot;) : [ipt.value];
-                for(var i=0,j=0;i&lt;valArr.length;i++){
-                    //&#x628A;&#x53CC;&#x5B57;&#x8282;&#x7684;&#x66FF;&#x6362;&#x6210;&#x4E24;&#x4E2A;&#x5355;&#x5B57;&#x8282;&#x7684;&#x7136;&#x540E;&#x518D;&#x83B7;&#x5F97;&#x957F;&#x5EA6; 
-                    var len = valArr[i].replace(/[^\x00-\xff]/g,&quot;01&quot;).length/2;
-                    j += Math.ceil((len*fz)/wd);
-                }
-                list.style.left = (len*fz)%wd==0?wd:(len*fz)%wd + pd + &quot;px&quot;;
-                list.style.top = j*lh + &quot;px&quot;;
-                list.style.display = &quot;block&quot;;
-            }else{
-                list.style.display = &quot;none&quot;;
-            }
-        }
-
-        for(var i=0;i&lt;list.children.length;i++){
-            list.children[i].onclick = function(e){
-                ipt.value += e.target.innerHTML;
-                list.style.display = &quot;none&quot;;
-            }
-        }
-        //&#x8F93;&#x5165;&#x6846;&#x83B7;&#x53D6;&#x5149;&#x6807;
-        function getPosition(element) {
-            var cursorPos = 0;
-            if (document.selection) {//IE
-                var selectRange = document.selection.createRange();
-                selectRange.moveStart(&apos;character&apos;, -element.value.length);
-                cursorPos = selectRange.text.length;
-            } else if (element.selectionStart || element.selectionStart == &apos;0&apos;) {
-                cursorPos = element.selectionStart;
-            }
-            return cursorPos;
-        } 
-  
-  
-}				
+&lt;script&gt;
 
 
-&lt;/script&gt;</div>
-        </div><div id="result15" class="zc-cont" style="overflow:hidden;" data-height="500px"></div>
-        <div id="js15" class="zc-cont" style="display:none">
-          <pre id="js-code15" class="prettyprint linenums"></pre>
-        </div>
-  
-        <div id="css15" class="zc-cont" style="display:none">
-          <pre id="css-code15" class="prettyprint linenums"></pre>
-        </div>
-  
-      </div>
-  
-      <input type="hidden" id="init-html15" value="&lt;!doctype html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;style&gt;
-        *{padding:0;margin:0;}
-        .box{position:relatuve;}
-        #ipt{
-            font-size:16px;
-            padding-left:5px;
-            line-height:30px;
-        }
-        #list{
-            position:absolute;
-            list-style:none;
-            width:150px;
-            display:none;
-        }
-        #list li{height:25px;line-height:25px;}
-        #list li:hover{background:#efefef;cursor:pointer;}
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&apos;box&apos;&gt;
-        &lt;textarea rows=&quot;3&quot; cols=&quot;20&quot; id=&apos;ipt&apos;&gt;&lt;/textarea&gt;
-        &lt;ul id=&apos;list&apos;&gt;
-            &lt;li&gt;qq.com&lt;/li&gt;&lt;li&gt;sina.com&lt;/li&gt;&lt;li&gt;163.com&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-	window.onload = function(){
-  
-  var ipt = document.getElementById(&apos;ipt&apos;);   
-        var list = document.getElementById(&apos;list&apos;);
-
-        ipt.oninput = function(e){
-            //console.log(e)
-            //&#x83B7;&#x53D6;&#x5149;&#x6807;&#x4F4D;&#x7F6E;
-            var position = getPosition(ipt);
-            ipt.value = ipt.value || &apos;&apos;;
-            //&#x5982;&#x679C;&#x5149;&#x6807;&#x540E;&#x9762;&#x662F;&#x7A7A;&#x683C;&#x6216;&#x6CA1;&#x6709;&#x5185;&#x5BB9;,&#x4E14;&#x5149;&#x6807;&#x524D;&#x9762;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x662F;@
-            var s = ipt.value.charAt(position)
-            if((s == &quot;&quot; || s == &quot; &quot;) &amp;&amp; ipt.value.charAt(position-1) == &quot;@&quot;){
-                var iStyle = window.getComputedStyle(ipt),
-                    fz = parseFloat(iStyle.fontSize),//&#x5B57;&#x4F53;&#x5927;&#x5C0F;
-                    wd = parseFloat(iStyle.width),//&#x6587;&#x672C;&#x57DF;&#x5BBD;&#x5EA6;
-                    lh = parseFloat(iStyle.lineHeight),//&#x884C;&#x9AD8;
-                    pd = parseFloat(iStyle.paddingLeft),//&#x5DE6;&#x5185;&#x8FB9;&#x8DDD;
-
-                    newStr = ipt.value.substr(0,position+1),
-                    //&#x6709;&#x6362;&#x884C;&#x7B26;&#x6839;&#x636E;&#x6362;&#x884C;&#x7B26;&#x62C6;&#x5206;
-                    valArr = newStr.indexOf(&quot;\n&quot;)!==-1 ? newStr.split(&quot;\n&quot;) : [ipt.value];
-                for(var i=0,j=0;i&lt;valArr.length;i++){
-                    //&#x628A;&#x53CC;&#x5B57;&#x8282;&#x7684;&#x66FF;&#x6362;&#x6210;&#x4E24;&#x4E2A;&#x5355;&#x5B57;&#x8282;&#x7684;&#x7136;&#x540E;&#x518D;&#x83B7;&#x5F97;&#x957F;&#x5EA6; 
-                    var len = valArr[i].replace(/[^\x00-\xff]/g,&quot;01&quot;).length/2;
-                    j += Math.ceil((len*fz)/wd);
-                }
-                list.style.left = (len*fz)%wd==0?wd:(len*fz)%wd + pd + &quot;px&quot;;
-                list.style.top = j*lh + &quot;px&quot;;
-                list.style.display = &quot;block&quot;;
-            }else{
-                list.style.display = &quot;none&quot;;
-            }
-        }
-
-        for(var i=0;i&lt;list.children.length;i++){
-            list.children[i].onclick = function(e){
-                ipt.value += e.target.innerHTML;
-                list.style.display = &quot;none&quot;;
-            }
-        }
-        //&#x8F93;&#x5165;&#x6846;&#x83B7;&#x53D6;&#x5149;&#x6807;
-        function getPosition(element) {
-            var cursorPos = 0;
-            if (document.selection) {//IE
-                var selectRange = document.selection.createRange();
-                selectRange.moveStart(&apos;character&apos;, -element.value.length);
-                cursorPos = selectRange.text.length;
-            } else if (element.selectionStart || element.selectionStart == &apos;0&apos;) {
-                cursorPos = element.selectionStart;
-            }
-            return cursorPos;
-        } 
-  
-  
-}				
-
-
-&lt;/script&gt;">
-      <input type="hidden" id="init-css15" value="">
-      <input type="hidden" id="init-js15" value="">
-      <input type="hidden" id="init-active15" value="html">
-  
-      <div style="display:none;">
-        <form method="post" id="codepen-form15" action="//codepen.io/pen/define" target="check">
-          <input id="codepen-data15" type="hidden" name="data">
-          <input type="hidden" name="wrap" value="l">
-        </form>
-      </div>
-    </div>
-   </p>
-<footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2020-09-29 15:00:05
+var trigger = function(element,event,data){
+        element.dispatchEvent(new CustomEvent(event, {detail: data,bubbles: true,cancelable: true}));
+    }
+    document.getElementById(&quot;test&quot;).addEventListener(&quot;click&quot;,function (e) {
+        console.log(&quot;&#x6D4B;&#x8BD5;&#x89E6;&#x53D1;&quot;);
+        console.log(e.detail)
+    });
+    trigger(document.getElementById(&quot;test&quot;),&quot;click&quot;,{id:1,title:&quot;&#x54C8;&#x54C8;&quot;});
+&lt;/script&gt;
+</code></pre><footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2022-08-26 15:18:08
 </span></footer>
                                 
                                 </section>
@@ -904,12 +680,12 @@
 
             
                 
-                <a href="drag2.html" class="navigation navigation-prev " aria-label="Previous page: 拖动二">
+                <a href="shadow_dom.html" class="navigation navigation-prev " aria-label="Previous page: 创建shadow dom元素">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="textareaSelect.html" class="navigation navigation-next " aria-label="Next page: textarea选中文字">
+                <a href="problem.html" class="navigation navigation-next " aria-label="Next page: 疑难问题">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -920,7 +696,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"文本框输入@触发选择菜单","level":"2.1.5","depth":2,"next":{"title":"textarea选中文字","level":"2.1.6","depth":2,"path":"textareaSelect.md","ref":"textareaSelect.md","articles":[]},"previous":{"title":"拖动二","level":"2.1.4","depth":2,"path":"drag2.md","ref":"drag2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"selectMenu.md","mtime":"2020-09-29T07:00:05.941Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-08T10:35:09.686Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"自动触发click事件","level":"2.1.20","depth":2,"next":{"title":"疑难问题","level":"3.1","depth":1,"path":"problem.md","ref":"problem.md","articles":[{"title":"video标签不能自动播放问题","level":"3.1.1","depth":2,"path":"video.md","ref":"video.md","articles":[]},{"title":"解决audio自动播放问题","level":"3.1.2","depth":2,"path":"sound.md","ref":"sound.md","articles":[]}]},"previous":{"title":"创建shadow dom元素","level":"2.1.19","depth":2,"path":"shadow_dom.md","ref":"shadow_dom.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"trigger_click.md","mtime":"2022-08-26T07:18:08.134Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-26T07:18:40.664Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
