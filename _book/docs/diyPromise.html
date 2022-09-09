@@ -535,6 +535,19 @@
             
         </li>
     
+        <li class="chapter " data-level="2.1.21" data-path="echarts_pie_3d.html">
+            
+                <a href="echarts_pie_3d.html">
+            
+                    
+                    echarts3d饼图
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -637,50 +650,74 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code>function Promise(fn) {
-    var value = null, succallbacks = [], failcallbacks = [];
-    this.then = function (fulfilled, rejected) {
-        succallbacks.push(fulfilled);
-        failcallbacks.push(rejected);
-    }
+                                <pre><code>var f1 =  new Promise((resolve, reject)=&gt;{
 
-    function resolve(value) {
         setTimeout(()=&gt;{
-            console.log(&apos;resovle:&apos;+value);
-            console.log(succallbacks);
-            succallbacks.forEach((callback) =&gt; {
-                callback(value);
+            console.log(&apos;f1 finished&apos;);
+            resolve({
+                text:&apos;f1 promise&apos;
             })
-        },0)
-    }
+        },2000)
 
-    function reject(value) {
+    })
+var f2 =  new Promise((resolve,reject)=&gt;{
+
         setTimeout(()=&gt;{
-            failcallbacks.forEach((callback) =&gt; {
-                callback(value);
+            console.log(&apos;f2 finished&apos;)
+            resolve({
+                text:&apos;f2 promise&apos;
             })
-        },0)
 
-    }
+        },2000)
+    })
 
-    fn(resolve, reject);
+//&#x5E76;&#x884C;&#x6267;&#x884C;
+Promise.all([f1,f2]).then(()=&gt;{ 
+    console.log(&apos;callback&apos;)
+})
+
+
+var a = _=&gt;{
+    return new Promise((resolve,reject)=&gt;{
+        setTimeout(_=&gt;{
+            console.log(&apos;aa&apos;);
+            reject(&apos;fail&apos;)
+            // resolve(&apos;a-&gt;ok&apos;)
+        },2000)
+    })
 }
-var a = new Promise((resolve, reject)=&gt;{
-    setTimeout(()=&gt;{
-        var img = new Image();
-        img.onload = function(){
-            resolve(this);
-        }
-        img.src = &apos;https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png&apos;;
+var b = _=&gt;{
+    return new Promise((resolve,reject)=&gt;{
+        setTimeout(_=&gt;{
+            console.log(&apos;bb&apos;);
 
-    },1000)
-});
-a.then(res=&gt;{
+            resolve(&apos;b-&gt;ok&apos;)
+        },1000)
+    })
+}
+// &#x4E32;&#x884C;&#x6267;&#x884C;promise &#x6784;&#x5EFA;&#x961F;&#x5217;
+function queue(arr) {
+    var res=[];
+    var sequence = Promise.resolve();
+    arr.forEach(function (item) {
+        sequence = sequence.then(item).then(data=&gt;{
+                console.log(data);
+                res.push(data);
+                return res
+       }).catch(data=&gt;{
+           //&#x6709;reject&#x4E5F;&#x8FD4;&#x56DE;
+           res.push(data);
+           return res;
+       })
+    })
+
+    return sequence
+}
+queue([a,b]).then(res=&gt;{
     console.log(res);
-    document.body.appendChild(res)
 })
 </code></pre><footer class="page-footer"><span class="copyright">&#xA9; Collect all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2021-05-27 14:08:54
+2022-09-09 10:11:33
 </span></footer>
                                 
                                 </section>
@@ -724,7 +761,7 @@ a.then(res=&gt;{
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"实现类Promise","level":"2.1.13","depth":2,"next":{"title":"在线裁图","level":"2.1.14","depth":2,"path":"cutImg.md","ref":"cutImg.md","articles":[]},"previous":{"title":"多行溢出省略号显示（ccs/js）实现！","level":"2.1.12","depth":2,"path":"overflow.md","ref":"overflow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"diyPromise.md","mtime":"2021-05-27T06:08:54.088Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-08-26T07:18:40.664Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"实现类Promise","level":"2.1.13","depth":2,"next":{"title":"在线裁图","level":"2.1.14","depth":2,"path":"cutImg.md","ref":"cutImg.md","articles":[]},"previous":{"title":"多行溢出省略号显示（ccs/js）实现！","level":"2.1.12","depth":2,"path":"overflow.md","ref":"overflow.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters-small","tbfed-pagefooter","sidebar-style","auto-scroll-table","code-editor","code"],"styles":{"website":"example/style/website.css"},"pluginsConfig":{"sidebar-style":{"author":"志成","title":"工作中的一些收集"},"tbfed-pagefooter":{"copyright":"&copy Collect","modify_label":"文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"search":{},"auto-scroll-table":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code-editor":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"expandable-chapters-small":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"lizhicheng","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作中的一些收集","output.name":"工作中的一些收集","gitbook":"*","description":"工作中的一些收集"},"file":{"path":"diyPromise.md","mtime":"2022-09-09T02:11:33.150Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-09T02:11:44.318Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
